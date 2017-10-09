@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        #mask {
+            width: 100%;
+            height: 100%;
+            /*半透明，div半透明 标准浏览器 */
+            opacity: 0.4;
+            /* ie 678 使用的半透明效果*/
+            filter: alpha(opacity = 40);
+            background-color: #000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        #show {
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -100px 0 0 -150px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<a href="javascript:;" id="login">注册</a>
+<a href="javascript:;">登录</a>
+<div id="mask"></div>
+<div id="show"></div>
+<script>
+
+    var login = document.getElementById("login");
+    var mask = document.getElementById("mask");
+    var show = document.getElementById("show");
+
+    login.onclick = function (event) {
+        var event = event || window.event;
+        mask.style.display = "block";
+        show.style.display = "block";
+        // 重点：不显示浏览器侧边栏
+        document.body.style.overflow = "hidden";
+
+        // 考虑到冒泡的兼容问题，单击后document的单机不生效
+        event.stopPropagation ? event.stopPropagation() : event.cancelBubble = true;
+
+    }
+
+    document.onclick = function (event) {
+        var event = event || window.event;
+        // 考虑到target的兼容问题
+        // 前者是为了兼容标准浏览器 后者为了兼容ie
+        var targetId = event.target ? event.target.id : event.srcElement.id;
+
+        // 不是显示的框的，空白区域单击有效
+        if(targetId != "show") {
+            mask.style.display = "none";
+            show.style.display = "none";
+            // 重点：不显示浏览器侧边栏
+            document.body.style.overflow = "visible";
+        }
+    }
+
+</script>
+</body>
+</html>

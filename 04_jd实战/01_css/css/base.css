@@ -1,0 +1,220 @@
+@charset "UTF-8";
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin:0;
+    padding:0;
+}
+/*这里的ouline-style表示去除样式*/
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }
+
+ul, ol {
+    list-style:none;
+}
+
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+
+select, input { vertical-align:middle;}
+
+select, input, textarea { font-size:12px; margin:0; }
+
+/*防止拖动*/
+textarea { resize:none; }
+
+/*  去掉图片低测默认的3像素空白缝隙*/
+img {border:0;	vertical-align:middle; }
+table { border-collapse:collapse; }
+body {
+
+    /*使用编码表示宋体*/
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    color:#666;
+    background:#fff
+}
+/*清除浮动*/
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table;
+}
+/*清除浮动*/
+.clearfix:after{
+    clear:both;
+}
+/*清除浮动兼容ie*/
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+
+/*清除超链接的样式*/
+a {color:#666; text-decoration:none; }
+a:hover{color:#C81623;}
+
+h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;}
+
+/*s下划线 i斜体 em倾斜*/
+s,i,em{font-style:normal;text-decoration:none;}
+
+/*权重最高，尽量少用*/
+.col-red{color: #C81623!important;}
+
+/*公共类*/
+/*版心 提取 */
+.w {
+    width: 1210px;
+    margin:0 auto;
+}
+.fl {
+    float:left
+}
+.fr {
+    float:right
+}
+.al {
+    text-align:left
+}
+.ac {
+    text-align:center
+}
+.ar {
+    text-align:right
+}
+.hide {
+    display:none
+}
+
+/*头部导航开始*/
+.shortcut {
+    height: 30px;
+    /*垂直居中*/
+    line-height: 30px;
+    background-color: #f1f1f1;
+    /*为了防止定位使用*/
+    width: 100%;
+}
+
+.shortcut div.dt,
+.shortcut ul li.fore{
+    padding:0 20px 0 10px;
+    /*background-color: pink;*/
+    /*进行相对定位*/
+    position: relative;
+}
+
+.shortcut  i{
+    /*表示字体加粗：bold是700 15px表示font-size ，后面的15px表示行高line-height
+    尽量使用数字表示粗体*/
+    font: 400 15px/15px "SimSun";
+    /*一旦定位，行内元素编程块级元素*/
+    position: absolute;
+    top: 13px;
+    right: 3px;
+    /*将菱形切一半*/
+    height: 7px;
+    width: 15px;
+    /*对多出的部分进行隐藏*/
+    overflow: hidden;
+}
+
+.shortcut  i s{
+    /*设置定位之后就有大小了*/
+    position: absolute;
+    top: -8px;
+    left: 0;
+}
+
+.shortcut .fr li{
+    float: left;
+    padding: 0 10px;
+}
+
+.shortcut .fr li.line {
+    width: 1px;
+    height: 12px;
+    background-color: #ddd;
+    margin-top: 10px;
+    padding: 0;
+}
+
+/*添加手机小图标，左边的padding需要增加*/
+.shortcut .fr .tel_jd{
+    padding:0 20px 0 25px;
+
+}
+
+.shortcut .tel{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: url(../images/sprite.png) no-repeat 0 0;
+    width: 15px;
+    height: 20px;
+}
+/*顶部end*/
+/*topbanner start*/
+.topbanner {
+    background-color: #8a25c6;
+
+}
+
+.topbanner .w_banner{
+    position: relative;
+}
+
+.topbanner a.close-banner{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 19px;
+    height: 19px;
+    background: url(../images/close.png) no-repeat;
+}
+
+.topbanner a.close-banner:hover {
+    /*图片不变，x轴不变，变化的是y的位置，使用bottom简洁*/
+    background-position: bottom;
+}
+
+/*topbanner end*/
+/*搜索栏 start*/
+.logo{
+    float: left;
+    width: 362px;
+    height: 75px;
+    padding-top: 25px;
+    /*让图片作为背景图，然后在背景图上添加超链接，SEO优化使用
+    由于padding上也会有背景图，因此需要设定背景图的位置*/
+    background: url(../images/logo.png) no-repeat 0 25px;
+    position: relative;
+}
+
+.logo .jd-a{
+    display: block;
+    width: 270px;
+    height: 60px;
+    text-indent: -9999em;
+}
+
+.logo .db11{
+    position: absolute;
+    top: 10px;
+    left: 168px;
+    width: 180px;
+    height: 80px;
+    background-color: pink;
+
+}
+.search{
+    float: left;
+    width: 538px;
+    height: 75px;
+    background-color: skyblue;
+    padding-top: 25px;
+}
+.car{
+    float: right;
+    width: 139px;
+    height: 24px;
+    margin: 25px 65px 0 0;
+    background-color: purple;
+    border: 1px solid gray;
+}
+/*搜索栏 end*/

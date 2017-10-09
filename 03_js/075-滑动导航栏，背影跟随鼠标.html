@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {margin: 0; padding: 0;}
+
+        body {
+            background-color: #333;
+        }
+        
+        .nav {
+            width: 800px;
+            height: 42px;
+            background: url(images/rss.png) no-repeat right center #fff;
+            margin: 100px auto;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .cloud {
+            width: 83px;
+            height: 42px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url(images/cloud.gif) no-repeat;
+        }
+
+        .nav ul {
+            list-style: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .nav ul li {
+            width: 83px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            float: left;
+            cursor: pointer;
+        }
+
+        .nav ul li.current,.nav ul li:hover {
+            color: #fff;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btns = document.getElementById("nav").children[1].getElementsByTagName("li");
+            var cloud = document.getElementById("nav").children[0];
+            var currentIndex = 0; // 重点，用于存放点击的位置
+            for(var i = 0 ; i < btns.length ; i ++){
+                btns[i].index = i;
+                btns[i].onmouseover = function () {
+                    for(var j = 0 ; j < btns.length ; j ++){
+                        btns[j].className = "";
+                    }
+                    this.className = "current";
+                    // 使用盒子的left来指定cloud的位置
+                    target = this.offsetLeft;
+                }
+
+                // 回到原来的位置
+                btns[i].onmouseout = function(){
+                    for(var j = 0 ; j < btns.length ; j ++){
+                        btns[j].className = "";
+                    }
+                    // 通过原先的位置还原
+                    target = currentIndex * this.offsetWidth;
+                    btns[currentIndex].className = "current";
+                }
+
+                btns[i].onclick = function () {
+                    currentIndex = this.index;
+                }
+            }
+
+            var start = 0;
+            var target = 0;
+            setInterval(function(){
+                start = start + (target - start)/4;
+                cloud.style.left = start + "px";
+            },30);
+        }
+    </script>
+</head>
+<body>
+<div class="nav" id="nav">
+    <span class="cloud" ></span>
+    <ul>
+        <li class="current">首页新闻</li>
+        <li>师资力量</li>
+        <li>活动策划</li>
+        <li>企业文化</li>
+        <li>招聘信息</li>
+        <li>公司简介</li>
+        <li>上海校区</li>
+        <li>广州校区</li>
+    </ul>
+</div>
+</body>
+</html>

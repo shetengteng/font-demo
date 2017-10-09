@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div#box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+<button id="btn200">200</button>
+<button id="btn400">400</button>
+<div id="box"></div>
+</body>
+</html>
+
+<script>
+    var btn200 = document.getElementById("btn200");
+    var btn400 = document.getElementById("btn400");
+
+    var box = document.getElementById("box");
+
+    btn200.onclick = function () {
+//        animate(box,"left",200);
+//        animate(box,"top",200);
+        animate(box,"width",200);
+    }
+
+    btn400.onclick = function () {
+//        animate(box,"left",400);
+        animate(box,"height",400);
+    }
+
+    // 更改任一一个属性的目标值
+    function animate(obj,attr,target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            // 获取当前值
+            var current = parseInt(getStyle(obj,attr));
+            // 计算步长
+            var step =( target - current ) / 10;
+            // 对步长进行取整操作
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            obj.style[attr] = current + step + "px";
+            if(current == target) {
+                clearInterval(obj.timer);
+            }
+
+        },30);
+    }
+
+    // 返回任一指定的样式: 前者ie 后者 w3c标准浏览器（null表示没有伪类）
+    function getStyle(obj,attr) {
+        return obj.currentStyle ? obj.currentStyle[attr] : window.getComputedStyle(obj,null)[attr];
+    }
+
+</script>

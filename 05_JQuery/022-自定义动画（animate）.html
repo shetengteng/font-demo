@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                // 使用animate函数
+                // 参数第一个是json格式的，定义属性，第二个是speed属性，定义执行需要的时间
+                // 最后一个是回调函数
+
+                var json1 = {"width":"200px","height":"200px"};
+                // 注意：有些属性不支持，如背景色
+                // 查看支持的属性：http://www.w3school.com.cn/jquery/effect_animate.asp
+                var json2 = {"width":"100px","height":"100px","background-color":"red"};
+
+                // 先放大和再缩小
+                $("div").animate(json1,200, function () {
+                    $(this).animate(json2,200);
+                })
+
+                // 模拟show
+                //$("div").animate({"width":0,"height":0,"opacity":0,"display":"none"},2000);
+
+            });
+        })
+
+    </script>
+</head>
+<body>
+<button>动画</button>
+<div></div>
+</body>
+</html>

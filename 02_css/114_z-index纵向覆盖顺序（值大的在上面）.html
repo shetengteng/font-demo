@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div.box1{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+		}
+		div.box2{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			position: relative;
+			top: 100px;
+			left: 100px;
+		}
+		div.box3{
+			width: 200px;
+			height: 200px;
+			background-color: yellowgreen;
+			/*必须定位，否则无法覆盖，此处定位未做任何的移动	*/
+			position: relative;
+			z-index: 1;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 
+		● z-index值表示谁压着谁。数值大的压盖住数值小的。
+		● 只有定位了的元素，才能有z-index值。也就是说，不管相对定位、绝对定位、固定定位，都可以使用z-index值。而浮动的东西不能用。
+		● z-index值没有单位，就是一个正整数。默认的z-index值是0。
+		● 如果大家都没有z-index值，或者z-index值一样，那么谁写在HTML后面，谁在上面能压住别人。定位了的元素，永远能够压住没有定位的元素。
+		● 从父现象：父亲怂了，儿子再牛逼也没用。 
+	-->
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+</body>
+</html>

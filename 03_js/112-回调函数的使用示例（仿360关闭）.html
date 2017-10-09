@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 322px;
+            position: fixed;
+            bottom:0;
+            right:0;
+        }
+        span{
+            position: absolute;
+            top:0;
+            right:0;
+            width:30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <span></span>
+    <div class="hd" id="t">
+        <img src="images/t.jpg" alt=""/>
+    </div>
+    <div class="bd" id="b">
+        <img src="images/b.jpg" alt=""/>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+    // 获取底部div，并将height变为0
+    var b = document.getElementById("b");
+    var closeAd = document.getElementsByTagName("span")[0];
+    closeAd.onclick = function () {
+       animate(b,{height:0},20,function(){
+          animate(b.parentNode,{width:0});
+       });
+    }
+
+    // 添加回调函数
+    // 多个属性的动画，jsonParam是属性以及目标值的封装
+    function animate(obj,jsonParam,speed,fn) {
+        clearInterval(obj.timer);
+        obj.timer = window.setInterval(function () {
+            var flag = true;
+            // 遍历所有属性
+            for(var attr in jsonParam) {
+                var current = parseInt(getStyle(obj,attr));
+                var step = ( jsonParam[attr] - current ) / 10;
+                // 对属性进行取整操作
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                obj.style[attr] = current + step + "px";
+                if(current != jsonParam[attr]) {
+                    // 只要有一个不满足条件的，就是false
+                    flag = false;
+                }
+            }
+            // 当所有的属性都达到目标值之后关闭定时器
+            if(flag) {
+                window.clearInterval(obj.timer);
+                if(fn){
+                    // 执行回调函数
+                    fn();
+                }
+            }
+        },speed ? speed : 10); // 如果speed没有定义，则是undefined，那么就是false
+    }
+
+    // 返回任一指定的样式: 前者ie 后者 w3c标准浏览器（null表示没有伪类）
+    function getStyle(obj,attr) {
+        return obj.currentStyle ? obj.currentStyle[attr] : window.getComputedStyle(obj,null)[attr];
+    }
+</script>

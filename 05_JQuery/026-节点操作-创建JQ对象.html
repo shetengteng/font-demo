@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+
+            // 创建节点方式1：$("整个标签")
+            // jq节点
+            // 类比于原生js的document.createElement("li");
+            console.log($("<li class = 'aaa'> 创建节点1 </li>"));
+
+            // 创建节点方式2：$("ul").html("");
+            // 给ul标签中赋值,并添加到ul中
+            // 类比于js的innerHtml属性
+            $("ul").html("<li> 创建节点2 </li>");
+
+
+        })
+
+
+    </script>
+</head>
+<body>
+
+<ul></ul>
+
+</body>
+</html>

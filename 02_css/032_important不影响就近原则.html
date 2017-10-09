@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*针对p标签的情况下*/
+		/*important不影响就近原则，因此，在都是继承的情况下，依然按照就近原则分配属性
+		important在继承中，可以看做权重为0*/
+		div{
+			color:red !important;
+		}
+		ul{
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>文字颜色</li>
+		</ul>
+	</div>
+</body>
+</html>

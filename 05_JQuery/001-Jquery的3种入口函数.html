@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+        }
+    </style>
+    <!-- 先引用jquery的js文件-->
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    <!-- 使用jquery文件的js语句要写在jquery引用的后面-->
+    <script>
+        // 注意：JQuery的入口方法在 文档加载完毕后加载，在图片加载完毕之前加载
+        // 而对于js的入口函数而言，是要在图片加载之后才进行加载js
+
+        // 2种入口函数的写法
+        // 1.原生的入口函数的写法
+        $(document).ready(function(){
+            // 在事件的写法上，与原生的js不同的在于，事件缺少on前缀，同时函数要作为入参放入事件函数中
+            $("#btn").click(function () {
+                $("div").hide();
+            });
+        });
+
+        // 2.简化版本的入口函数的写法
+        $(function(){
+            alert("helloworld");
+        })
+
+        // 注意：2中入口函数最后合成一个js程序执行，alert会执行而不会影响第一个入口函数的执行
+        // 这个与window.onload不一样，不会覆盖
+        // 如果要和 js 的入口函数的加载顺序一致的话，jquery中的参数需要改变，如 window
+//        $(window).ready(function () {
+//            alert("img has load");
+//        });
+
+    </script>
+
+</head>
+<body>
+
+<img src="images/jQuery对象和DOM对象.png" alt=""/>
+<button type="button" id="btn">隐藏</button>
+<div></div>
+
+
+</body>
+</html>

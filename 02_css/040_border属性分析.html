@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*注意：border必须要有大小和样式，默认是黑色，否则不会被显示*/
+		div.d1{
+			width: 200px;
+			height: 200px;
+			/*一个border是由3个小属性综合而成*/
+			border: 10px solid red;
+		}
+
+		/*按要素拆开,等价于上面的操作*/
+		div.d2{
+			width: 200px;
+			height: 200px;
+			border-width: 10px;
+			border-style: solid;
+			border-color: red;
+		}
+
+		/*将小属性按照顺序拆开,分别是上，右，下，左边框*/
+		div.d3{
+			width: 200px;
+			height: 200px;
+			border-width: 10px 20px 30px 40px;
+			border-style: solid dashed dotted ridge;
+			border-color: red green blue yellow;			
+		}
+
+		/*将小属性按照方向来拆分,每个方向可以指定大小，样式和颜色*/
+		div.d4{
+			width: 200px;
+			height: 200px;
+			border-top: 10px solid red;
+			border-right: 10px solid red;
+			border-bottom: 10px solid red;
+			border-left: 10px solid red;
+		}
+
+		/*再进行小属性的细分*/
+		div.d5{
+			width: 200px;
+			height: 200px;
+			/*每个边框可以再进行划分*/
+			border-top-width: 10px;
+			border-top-style: solid;
+			border-top-color: red;
+			border-right: 10px solid red;
+			border-bottom: 10px solid red;
+			border-left: 10px solid red;
+		}
+	
+	</style>
+</head>
+<body>
+	<div class="d1"></div>
+	<div class="d2"></div>
+	<div class="d3"></div>
+	<div class="d4"></div>
+	<div class="d5"></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*增加div的高度，去除li浮动元素之间的影响,注意父元素的高度要大于子元素的高度*/
+		/*有高度的盒子才能关住浮动*/
+		div.box2{
+			height: 80px;
+			border:1px solid black;
+		}
+		li{
+			float:left;
+			width: 90px;
+			height: 40px;
+			background-color: gold;
+			/*文本居中*/
+			text-align: center;
+			margin-right: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 只要第一个有高，后续的div内部的li元素就不会过来，当然2个都有高更好，第二个div后面如果有li则不会在过来 -->
+	<div class="box2">
+		<ul>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JS</li>
+			<li>HTML5</li>
+			<li>设计模式</li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li>学习方法</li>
+			<li>英语水平</li>
+			<li>面试技巧</li>
+		</ul>
+	</div>
+</body>
+</html>

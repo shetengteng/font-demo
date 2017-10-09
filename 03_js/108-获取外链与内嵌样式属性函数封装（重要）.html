@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+            top: 10px;
+            left: 20px;
+            z-index: auto;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+
+<div id="demo"></div>
+
+</body>
+</html>
+
+<script>
+    var demo = document.getElementById("demo");
+    // 用于访问样式中的属性，内嵌和外链样式都可以访问，不用使用offsetLeft等形式访问样式
+    function getStyle(obj,attr) {
+        // 判断兼容性问题
+        // 前者ie 后者 w3c标准浏览器（null表示没有伪类）
+        var style = obj.currentStyle ?
+                obj.currentStyle : window.getComputedStyle(obj,null);
+        return style[attr];
+    }
+
+    console.log(getStyle(demo,"width"));
+    console.log(getStyle(demo,"height"));
+    console.log(getStyle(demo,"z-index"));
+    console.log(getStyle(demo,"opacity"));
+
+</script>

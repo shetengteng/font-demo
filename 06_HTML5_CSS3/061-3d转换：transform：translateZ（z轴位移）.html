@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        body {
+            /*注意：z轴位移需要与透视配合使用*/
+            /*注意：透视需要添加在3d操作的父盒子上生效*/
+            perspective: 500px;
+        }
+
+       .box {
+           width: 250px;
+           height: 250px;
+           background-color: green;
+
+           margin: 100px auto;
+
+           transition: all 1s;
+       }
+
+       .box:hover {
+            /*垂直位移，等价于放大*/
+           transform: translateZ(200px);
+       }
+
+    </style>
+</head>
+<body>
+   <div class="box">
+
+   </div>
+</body>
+</html>

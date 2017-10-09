@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 100px auto;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+        }
+        
+        /*伪类，一种状态，在全屏情况下样式的变化*/
+        .box:-webkit-full-screen {
+            background-color: red;
+        }
+        
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.querySelector(".box");
+            box.onclick = function () {
+                // 兼容性写法
+                if(box.requestFullscreen) {
+                    box.requestFullscreen();
+                }else if(box.webkitRequestFullScreen) {
+                    box.webkitRequestFullScreen();
+                }else if(box.mozRequestFullScreen) {
+                    // 注意，在火狐浏览器中的全屏是元素的全屏，会失真
+                    box.mozRequestFullScreen();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">全屏</div>
+</body>
+</html>

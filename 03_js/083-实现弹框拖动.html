@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        .nav{
+            height:30px;
+            background: #036663;
+            border-bottom:1px solid #369;
+            line-height: 30px;
+            padding-left:30px;
+        }
+        .nav a {
+            color:#fff;
+            text-align: center;
+            font-size:14px;
+            text-decoration: none;
+
+        }
+        .d-box{
+            width:400px;
+            height:300px;
+            border:5px solid #eee;
+            box-shadow:2px 2px 2px 2px #666;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-top: -155px;
+            margin-left:-205px;
+
+        }
+        .hd{
+            width:100%;
+            height:25px;
+            background-color: #7c9299;
+            border-bottom:1px solid #369;
+            line-height: 25px;
+            color:white;
+            cursor: move;
+        }
+        #box_close{
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            // 要移动的盒子
+            var box = document.getElementById("d_box");
+            // 鼠标操作的div块
+            var drop = document.getElementById("drop");
+
+            startMove(drop,box);
+            // 函数的参数是当前鼠标操作的div，后一个参数是要移动的div
+            function startMove(current,move) {
+                current.onmousedown = function (event) {
+                    var _event = event || window.event;
+                    // 获得当前要操作盒子的父级定位元素距离浏览器边框的位置
+                    // 注意这里的margin有位移，需要去除，因为弹框是居中的，需要去除高和宽的一半
+                    var leftVal = _event.clientX - move.offsetLeft - move.offsetWidth / 2;
+                    var topVal = _event.clientY - move.offsetTop - move.offsetHeight / 2;
+
+                    // 按下鼠标后，进行拖动时间的操作
+                    document.onmousemove = function (event) {
+                        var _event = event || window.event;
+                        move.style.left = _event.clientX - leftVal + "px";
+                        move.style.top = _event.clientY - topVal + "px";
+
+                        // 重要：解决选择div中的内容，去除选择，防止拖动的时候失效
+                        window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+                    }
+                }
+                document.onmouseup = function () {
+                    // 解除时间的绑定
+                    document.onmousemove = null;
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="nav">
+    <a href="javascript:;" id="register">注册信息</a>
+</div>
+<div class="d-box" id="d_box">
+    <div class="hd" id="drop">注册信息   (可以拖拽)
+        <span id="box_close">【关闭】</span>
+    </div>
+    <div class="bd"></div>
+</div>
+</body>
+</html>

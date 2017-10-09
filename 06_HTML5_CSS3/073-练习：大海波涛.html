@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,body {
+            height: 100%;
+            width: 100%;
+            
+        }
+        
+        body {
+            background-color: lightseagreen;
+            overflow: hidden;
+        }
+
+        .bottom {
+            width: 100%;
+            height: 235px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .bottom>div {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background:url(images/animate/botao/1.png) no-repeat bottom left;
+            opacity: .4;
+        }
+
+        .bottom .bottom2{
+            background: url(images/animate/botao/2.png) no-repeat;
+            /*延时0.5s*/
+            animation: upDown 1s infinite alternate 0.5s;
+
+        }
+
+        .bottom .bottom1 {
+            animation: upDown 1s infinite alternate;
+        }
+
+        @keyframes upDown {
+            0% {
+                bottom: 0px;
+            }
+
+            100% {
+                bottom: -30px
+            }
+        }
+
+
+        /*太阳*/
+        .sun {
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        .sun2,.sun1 {
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+
+        }
+
+        @keyframes bigSmall {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                /*放大操作*/
+                transform: scale(1.5);
+                opacity: 0.1;
+            }
+        }
+
+        .sun1 {
+            animation: bigSmall 1s alternate infinite;
+        }
+
+        .sun2 {
+            animation: bigSmall 1s alternate infinite 0.5s;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sun">
+        <div class="sun1"></div>
+        <div class="sun2"></div>
+    </div>
+
+    <div class="bottom">
+        <div class="bottom1"></div>
+        <div class="bottom2"></div>
+    </div>
+
+</body>
+</html>

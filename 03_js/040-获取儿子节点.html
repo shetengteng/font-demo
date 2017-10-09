@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var obj = document.getElementById("ul");
+            var chNodes = obj.childNodes;
+            alert(chNodes.length);// 7 个子节点，包含回车
+            // 通过nodeType == 1 进行筛选元素节点，去除回车节点
+            for(var i = 0 ; i < chNodes.length ; i ++) {
+                if(chNodes[i].nodeType == 1) {
+                    chNodes[i].style.backgroundColor = "pink";
+                }
+            }
+
+            var chNodes2 = obj.children;
+            alert(chNodes2.length);// 3个子节点
+
+        }
+    </script>
+</head>
+<body>
+<ul id="ul">
+    <li>111111</li>
+    <li>111111</li>
+    <li>111111</li>
+</ul>
+</body>
+</html>

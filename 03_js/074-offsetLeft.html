@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0; padding: 0;}
+        #yeye {
+            position: relative;
+            overflow: hidden;
+            background-color: orange;
+            width: 600px;
+            height: 600px;
+            padding: 100px;
+        }
+        #father {
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            margin: 100px;
+            margin-left:30px;
+        }
+        #son {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+<div id="yeye">
+    <div id="father">
+        <div id="son"></div>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    var son = document.getElementById("son");
+    console.log(son.offsetLeft);
+    //返回距离上级盒子（最近的带有定位）左边的位置
+    //如果父级都没有定位则以body 为准
+    //子盒子到定位的父盒子边框到边框的距离
+    //从父级的padding 开始算,父亲的border 不算
+</script>

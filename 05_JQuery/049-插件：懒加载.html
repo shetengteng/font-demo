@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 3000px;
+            background-color: pink;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <!-- 注意：该js插件必须写在jquery的js后面，因为很多会对jquery产生依赖-->
+    <script src="js/jquery.lazyload.js"></script>
+    <script>
+        $(function () {
+            // 懒加载调用,含有参数
+            $("img.lazy").lazyload();
+        })
+    </script>
+</head>
+<body>
+<div>
+    
+</div>
+<!--使用特定的class与data-original属性-->
+<img class="lazy" data-original="images/突出显示/02.jpg">
+</body>
+</html>

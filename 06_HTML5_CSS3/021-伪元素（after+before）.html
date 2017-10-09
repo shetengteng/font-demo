@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*使用css模拟成一个标签元素的效果，修改内容*/
+        /*注意：必须要有content属性*/
+        span::before {
+            content: "使用伪元素在span的内容之前和之后添加一个内容以及样式--";
+            color: blue;
+            background-color: pink;
+            height: 50px;
+            display: inline-block;
+        }
+
+        span::after {
+            content: "：伪装成一个元素，必须要有content属性";
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+<span>伪元素</span>
+</body>
+</html>

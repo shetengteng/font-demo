@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+
+        .demo {
+            margin: 20px;
+        }
+
+        input {
+            width: 200px;
+            height: 40px;
+        }
+
+        button {
+            display: inline-block;
+            width: 200px;
+            height: 44px;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="demo">
+    <input type="text"/><button id="btn">点击发送短信</button>
+</div>
+<script>
+   var btn = document.getElementById("btn");
+   var timer = null;
+   btn.onclick = function () {
+       // 先清除原来的定时器
+       clearInterval(timer);
+       // 设置失效
+       this.disabled = true;
+       // 这里尽量使用this，因为使用调用者本身，与id解耦
+       var _this= this;
+       // 一般window是省略的
+       timer =  window.setInterval(sendMessageFun,1000);
+       var time = 10;
+       function sendMessageFun () {
+           btn.innerHTML = "重发短信剩余"+time+"s";
+           time-- ;
+           if(time == 0) {
+               btn.innerHTML = "重新发送";
+               // 注意这里的this是指的是window对象，调用者
+               // 而_this 是btn对象
+               _this.disabled = false;
+               // 终止定时器
+              clearInterval(timer);
+           }
+       }
+   }
+</script>
+</body>
+</html>

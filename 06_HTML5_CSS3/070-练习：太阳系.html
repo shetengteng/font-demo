@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            background-color: #000;
+            /*由于转动，div的棱角会撑大body，出现滚动条，使用overflow进行剪裁*/
+            overflow: hidden;
+        }
+
+        .sun {
+             width: 100px;
+             height: 100px;
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             transform: translate(-50%,-50%);
+             background-color: yellow;
+             box-shadow: 0 0 30px 3px gold;
+             border-radius: 50%;
+         }
+
+        /*地球圈*/
+        .earth {
+            width: 400px;
+            height: 400px;
+            position: absolute; 
+            left: 50%;
+            top: 50%;
+            /*保证居中*/
+            transform: translate(-50%,-50%);
+            border: 1px solid #ccc;
+            border-radius: 50%;
+
+            animation: move 5s linear infinite;
+        }
+
+        /*地球*/
+        .earth::before {
+            content: "";
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            background-color: cornflowerblue;
+            border-radius: 50%;
+        }
+
+        /*月球圈*/
+        .moon {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border: 1px solid #ccc;
+            border-radius: 50%;
+
+            animation: move 3s linear infinite;
+        }
+
+        /*月球*/
+        .moon::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            background-color: whitesmoke;
+            border-radius: 50%;
+        }
+
+        /*金星圈*/
+        .venus {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border: 1px solid #ccc;
+            border-radius: 50%;
+
+            animation: move 8s linear infinite;
+        }
+
+        /*金星*/
+        .venus::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            background-color: beige;
+            border-radius: 50%;
+        }
+
+        /*火星圈*/
+        .mars {
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border: 1px solid #ccc;
+            border-radius: 50%;
+
+            animation: move 10s linear infinite;
+        }
+
+        /*火星*/
+        .mars::before {
+            content: "";
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            background-color: indianred;
+            border-radius: 50%;
+        }
+
+        @keyframes move {
+
+            /*需要有初始的条件，否则旋转状态没有改变*/
+            0% {
+                transform: translate(-50%,-50%) rotate(0deg);
+            }
+
+            100% {
+                /*在旋转的时候会覆盖居中操作，需要重新写上*/
+                /*注意：位移需要在旋转前面，否则会先旋转后位移*/
+                transform:  translate(-50%,-50%) rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sun"></div>
+    <div class="earth">
+        <div class="moon"></div>
+    </div>
+    <div class="venus"></div>
+    <div class="mars"></div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    // 增加
+    var arr = [1,2,3];
+    console.log(arr);
+    //在末尾添加元素,返回新的长度
+    var len = arr.push(4);
+    console.log(arr+"");
+    //在数组前面添加元素，并返回新的长度
+    len = arr.unshift("0");
+    console.log(arr+"");
+
+    // 删除
+    // 从末尾移除元素，返回的是移除的元素
+    var obj = arr.pop();
+    console.log(obj + "--pop--"+ arr);
+    // 删除第一个值，返回的是移除的元素
+    obj = arr.shift();
+    console.log(obj + "-- shift --"+ arr);
+
+
+    // 连接2个数组
+    // 2个数组进行连接，返回新的数组，原数组不变
+    var aa = [1,2,3];
+    var bb = ["u","i","o"];
+    var cc = aa.concat(bb);
+    console.log(aa + "----" + bb + "----" + cc);
+
+    // 将数组转为字符串，使用分割符进行分割,返回相应的字符串
+    var strAA = aa.join(",");
+    var strBB = bb.join("|");
+    console.log(strAA);
+    console.log(strBB+"---"+bb);
+
+    // 将字符串转换为数组,不过转换后的数组元素是字符数组
+    var aa2 = strAA.split(",");
+    console.log(aa2);
+
+
+</script>
+</body>
+</html>

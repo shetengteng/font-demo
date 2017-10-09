@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 操作方法1 使用json操作
+            $("div").css({"width":100,"height":100,"background-color":"red"});
+            // 操作方法2：设置单个属性
+            $("div").css("border","1px solid black");
+            // 操作方法3：读取属性,注意读取的值有px单位,如果有很多个div，那么获取的是第一个div的css属性
+            console.log($("div").css("width"));
+        })
+    </script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

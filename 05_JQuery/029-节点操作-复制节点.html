@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 复制节点
+            $("button").click(function () {
+                // 使用clone方法，没有参数，深度复制，会复制子元素
+                $(".box").append($(".box ul:eq(0)").clone());
+            });
+        })
+    </script>
+</head>
+<body>
+<button>复制li</button>
+<div class="box">
+    <ul>
+        <li>本地的li1</li>
+        <li>本地的li2</li>
+        <li>本地的li3</li>
+        <li>本地的li4</li>
+    </ul>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		.cl{
+			clear:both;
+		}
+
+		body{
+			font-family: "Microsoft YaHei","Simsun";
+			font-size: 14px;
+			/*用于调试*/
+			height: 8888px;
+		}
+
+		ul.nostyle{
+			list-style: none;
+		}
+
+
+		div.header{
+			height: 58px;
+			background-color: #191D3A;
+		}
+
+		div.inner_c{
+			width: 1000px;
+			/*
+			用于调试，高度可以由logo图片撑起
+			height: 58px;
+			background-color: red;*/
+			margin: 0 auto;
+
+			/*overflow: hidden;
+			_zoom: 1;*/
+
+		}
+		
+		.header .logo{
+			float: left;
+		}
+
+		.header .nav{
+			float: left;
+			padding-left: 24px;
+		}
+
+	
+		.header .nav ul li{
+			float: left;
+			width: 100px;
+			line-height: 58px;
+			text-align: center;
+			border-left: 1px solid #252947;
+		}
+		.header .nav ul li.last{
+			border-right: 1px solid #252947;
+		}
+
+		.header .nav ul li a{
+			display: block;/*将行内元素转换为块级元素*/
+			text-decoration: none;
+			color: #818496;
+		}
+		
+		.header .nav ul li a.current,div.nav ul li a:hover{
+			color: #E2E4ED;
+			background-color: #252947;
+		}
+
+		div.banner{
+			height: 463px;
+			background: url(images/banner.jpg) no-repeat center top;
+		}
+
+		div.content{
+			padding-top: 50px;
+		}
+		
+		.content .product{
+			height: 229px;
+			border-bottom: 1px solid #DBE1E7;
+		}
+
+		.content .product ul li{
+			float: left;
+			text-align: center;
+			padding-right: 43px;
+		}
+		
+		.content .product ul li.last{
+			padding-right: 0;
+			width: 217px;
+		}
+
+		.content .product ul li img{
+			width: 218px;
+			height: 130px;
+		}
+			
+		.content .product ul li h3{
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 38px;
+		}
+		
+		.content .product ul li p.djbf a{
+			font-size: 12px;
+			color: #38B774;
+			text-decoration: none;
+			background: url(images/sj.png) no-repeat right 5px;
+			/*将三角符号放在padding的区域里面*/
+			padding-right: 13px;
+		}
+
+		
+
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="inner_c">
+			<!-- 这里用一个h1表示logo的语义 -->
+			<h1 class="logo"><img src="images/logo.png" alt="" /></h1>
+
+			<!-- 导航栏 -->
+			<div class="nav">
+				<ul class="nostyle">
+					<li><a href="#" class="current">首页</a></li>
+					<li><a href="#">博雅游戏</a></li>
+					<li><a href="#">博雅新闻</a></li>
+					<li><a href="#">关于我们</a></li>
+					<li><a href="#">客服中心</a></li>
+					<li class="last"><a href="#" >投资者关系</a></li>
+				</ul>
+			</div>
+		</div>	
+	</div>
+
+	<!-- 隔墙法 -->
+	<div class="c1"></div>
+	<div class="banner"></div>
+	
+	<div class="content inner_c">
+		<div class="product">
+			<ul class="nostyle">
+				<li>
+					<p><img src="images/pro1.jpg" alt="" /></p>
+					<h3>BPT宣传片</h3>
+					<p class="djbf">
+						<a href="#">点击播放</a>
+					</p>
+				</li>
+				<li>
+					<p><img src="images/pro2.jpg" alt="" /></p>
+					<h3>BPT宣传片</h3>
+					<p class="djbf">
+						<a href="#">点击播放</a>
+					</p>
+				</li>
+				<li>
+					<p><img src="images/pro3.jpg" alt="" /></p>
+					<h3>BPT宣传片</h3>
+					<p class="djbf">
+						<a href="#">LANDLORDS</a>
+					</p>
+				</li>
+				<li class="last">
+					<p><img src="images/pro4.jpg" alt="" /></p>
+					<h3>BPT宣传片</h3>
+					<p class="djbf">
+						<a href="#">TEXAS HOLD'EM POKER</a>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+</body>
+</html>

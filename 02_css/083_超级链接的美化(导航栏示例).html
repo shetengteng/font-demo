@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		div.nav{
+			width: 960px;
+			height: 40px;
+			margin: 100px auto;
+			/*border: 1px solid black;*/
+		}
+
+		.nav ul{
+			/*去除ul 的li 中的小圆点*/
+			list-style: none;
+		}
+
+		.nav ul li{
+			float:left;
+			height: 40px;
+			width: 120px;
+			/*里中的文本左右居中，上下居中*/
+			text-align: center;
+			line-height: 40px;
+		}
+
+		/*a标签中，描述盒子； 伪类中描述文字的样式、背景*/
+		.nav ul li a{
+			/*注意：a标签时行内元素，需要转换成块级元素，才能有点击连接字体外依然能点击的效果，类似于按钮，而非局限于字体链接上*/
+
+			/*a不继承text、font这些东西*/
+			display: block;
+			text-decoration: none;
+		}
+		
+		/*点击之前和点击之后的效果*/
+		.nav ul li a:link,.nav ul li a:visited{
+			background-color: black;
+			color: white;
+		}
+
+		.nav ul li a:hover{
+			background-color: orange;
+			color: white;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li><a href="#">网站栏目</a></li>
+			<li><a href="#">网站栏目</a></li>
+			<li><a href="#">网站栏目</a></li>
+			<li><a href="#">网站栏目</a></li>
+			<li><a href="#">网站栏目</a></li>
+			<li><a href="#">网站栏目</a></li>
+			<li><a href="#">网站栏目</a></li>
+			<li><a href="#">网站栏目</a></li>
+		</ul>
+	</div>
+</body>
+</html>

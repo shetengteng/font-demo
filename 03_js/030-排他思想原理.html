@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .xiaoguo {
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btns =  document.getElementsByTagName("button");
+            for(var i =0;i<btns.length;i++){
+                //这里使用了自定义属性，将i进行赋给自定义的index，
+                //如果自己输出i则会失效，因为for循环遍历完毕后，i保持length的大小
+                //此处使用自定义属性存储i的值
+                btns[i].index = i;
+                btns[i].onclick = function(){
+                    //设置所有的按键效果
+                    for(var j = 0;j<btns.length;j++){
+                        btns[j].className = "";
+                    }
+                    //单独按键的效果
+                    this.className = "xiaoguo";
+                    alert(this.index);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<button>排他按键</button>
+<button>排他按键</button>
+<button>排他按键</button>
+<button>排他按键</button>
+<button>排他按键</button>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <!-- 按钮下拉菜单-->
+    <!-- 分割按钮的左边是原始的功能，右边是显示下拉菜单的切换。-->
+
+    <div class="btn-group">
+        <button class="btn btn-default">默认</button>
+        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+            <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">功能</a></li>
+            <li><a href="#">功能</a></li>
+            <li><a href="#">功能</a></li>
+            <li class="divider"></li>
+            <li><a href="#">功能</a></li>
+        </ul>
+
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-default">默认</button>
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
+            下拉 <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">功能</a></li>
+            <li><a href="#">功能</a></li>
+            <li><a href="#">功能</a></li>
+            <li class="divider"></li>
+            <li><a href="#">功能</a></li>
+        </ul>
+
+    </div>
+
+
+</body>
+</html>

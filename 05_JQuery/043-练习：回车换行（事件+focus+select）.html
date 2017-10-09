@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+           // 键盘按键松开触发
+            $("input").on("keyup", function (e) {
+//               alert(e.keyCode);
+                    // 表示回车
+                if(e.keyCode === 13) {
+                    // 下一个input标签获得焦点 js和jQuery都有此方法
+                     // 注意：下一个是br标签
+                    $(this).next().next("input").focus();
+                }
+            })
+
+            // 一旦点击文本框，全选文本
+            $("input").on("click", function () {
+                //该方法针对text 以及 textarea 等特殊的输入框有效，同时是jquery的方法
+                $(this).select();
+                // 如div中的文本就不能被全选
+                $("div").select();
+
+            })
+
+        });
+    </script>
+</head>
+<body>
+
+<input type="text" value="hello java"/><br>
+<input type="text" value="hello java"/><br>
+<input type="text" value="hello java"/><br>
+<input type="text" value="hello java"/><br>
+<input type="text" value="hello java"/><br>
+<input type="text" value="hello java"/><br>
+<input type="text" value="hello java"/><br>
+
+<div>
+    aaaa
+</div>
+
+</body>
+</html>

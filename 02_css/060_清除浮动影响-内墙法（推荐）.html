@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		li{
+			float:left;
+			width: 90px;
+			height: 40px;
+			background-color: gold;
+			/*文本居中*/
+			text-align: center;
+			margin-right: 10px;
+		}
+
+		.cl{
+			clear: both;
+		}
+
+		.h10{
+			height: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JS</li>
+			<li>HTML5</li>
+			<li>设计模式</li>
+		</ul>
+		<!-- 使用内墙法 -->
+		<!-- 注意，使用内墙法可以是div有高度，从而可以设置背景颜色
+			如果是这里的li，则不会给div增加高度，因为li是脱标元素，div的高度依然是0
+			但是使用了内墙法增加了高度后，li的高度也增加到了div中了 -->
+			<!-- 本质：父亲元素是不能被浮动的子元素撑出高度的 -->
+		<div class="cl h10"></div>
+	</div>
+
+	<div>
+		<ul>
+			<li>学习方法</li>
+			<li>英语水平</li>
+			<li>面试技巧</li>
+		</ul>
+	</div>
+</body>
+</html>

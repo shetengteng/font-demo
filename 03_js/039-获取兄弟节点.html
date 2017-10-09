@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var obj = document.getElementById("one");
+            //obj.previousElementSibling.style.backgroundColor = "red"; // 其他浏览器识别
+            //obj.previousSibling.style.backgroundColor = "red"; // ie8以下识别
+            // 考虑到兼容问题,注意先写其他浏览器，再写ie浏览器
+            var div = obj.previousElementSibling || obj.previousSibling;
+            div.style.backgroundColor = "red";
+
+            obj.nextElementSibling.style.backgroundColor = "blue";
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li>111111</li>
+    <li>111111</li>
+    <li>111111</li>
+    <li>111111</li>
+    <li id = "one">one</li>
+    <li>111111</li>
+    <li>111111</li>
+    <li>111111</li>
+</ul>
+</body>
+</html>

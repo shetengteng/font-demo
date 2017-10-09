@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin:0 ;
+            padding:0 ;
+        }
+
+        li {
+            width: 200px;
+            height: 200px;
+            list-style: none;
+            margin: 20px;
+            font: 50px/200px "simsun";
+            background-color: pink;
+            text-align: center;
+            float: left;
+        }
+
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 设置不同的盒子的透明度逐渐递增
+            $("li").each(function (index,element) {
+                // element是原生的js对象
+                console.log(index +":"+ $(element).index());
+                $(element).css("opacity",index/10);
+            })
+        })
+
+    </script>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 300px;
+            width: 300px;
+            background-color: pink;
+            display: none;
+        }
+    </style>
+
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 点击按键后显示动画
+            $("button:eq(0)").click(function () {
+                // 动画1：show
+                // 底层是通过设置display为block
+                //$("div").show();
+
+                // 动画2： show + ms值
+                // 通过控制宽高和透明度以及display 在规定的ms值内显示出来
+                //$("div").show(2000);
+
+                // 动画3： show + normal | fast | slow
+                //$("div").show("normal"); // 不填写与写其他值，则为normal
+                //$("div").show("fast");
+                //$("div").show("slow");
+
+                // 动画4： show + ms + 回调函数
+                $("div").show(2000,function () {
+                    // 在执行2000ms后执行一次回调函数
+                    alert("动画执行完毕");
+                });
+            });
+
+
+            $("button:eq(1)").click(function () {
+                // 隐藏动画 1 hide 直接隐藏
+                // $("div").hide();
+
+                // 隐藏动画 2 hide + normal | fast | slow
+                // 隐藏也是宽和高，透明度，最后是display为none
+                // $("div").hide("slow");
+
+                // 隐藏动画 3 hide + ms + | func
+                //$("div").hide(1000); // 在规定的时间内隐藏
+                // 在隐藏完毕后执行回调函数
+                $("div").hide(1000, function () {
+                    alert("隐藏完毕");
+                });
+            });
+
+            // 切换
+            $("button:eq(2)").click(function () {
+                // 显示隐藏切换
+                $("div").toggle(200, function () {
+                    alert("切换完毕");
+                })
+            });
+            
+        })
+    </script>
+</head>
+<body>
+<button>显示</button>
+<button>隐藏</button>
+<button>切换</button>
+<div></div>
+</body>
+</html>

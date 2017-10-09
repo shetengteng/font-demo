@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery-myplugins-1.0.1.js"></script>
+    <script>
+        $(function () {
+            $("button").on("click", function () {
+                // 使用自定义js插件
+                $(this).setButtonColorRed();
+            })
+        })
+    </script>
+</head>
+<body>
+<button>变色</button>
+<button>变色</button>
+<button>变色</button>
+</body>
+</html>

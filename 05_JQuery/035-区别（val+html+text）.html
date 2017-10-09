@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // val(); 获取标签中的value属性的值
+            alert($("input").val());
+
+            // 设置value属性的值
+            $("input").val("new value");
+
+            // text(); 获取双闭合标签的文本值
+            alert($("div").text()); // 注意：结果是--文本，没有li标签
+            $("div").text("<li>使用text进行赋值</li>");
+
+
+            // html(); 与text相比，该html显示的是含有标签前缀的
+            alert($("div").html()); // 结果： <li>文本</li>
+            $("div").html("<li>使用html进行赋值</li>");
+
+            // 注意text和html的区别，text特指的是文本内容，而html指的是含带标签
+
+        })
+    </script>
+</head>
+<body>
+<input type="text" value="input"/>
+<div>
+    <li>文本</li>
+</div>
+</body>
+</html>

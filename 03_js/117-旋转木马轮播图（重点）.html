@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/muma.css"/>
+    <script type="text/javascript" src="js/animate.js"></script>
+</head>
+<body>
+
+<div class="main" id="main">
+    <div class="slider" id="slider">
+        <ul>
+            <li><a href="#"><img src="images/xuanzhuanmuma/slidepic1.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/xuanzhuanmuma/slidepic2.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/xuanzhuanmuma/slidepic3.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/xuanzhuanmuma/slidepic4.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/xuanzhuanmuma/slidepic5.jpg" alt=""/></a></li>
+        </ul>
+    </div>
+    <div class="arrow" id="arrow">
+        <a href="javascript:;" class="prev"></a>
+        <a href="javascript:;" class="next"></a>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+    function $(id) {return document.getElementById(id);}
+
+    var main = $("main");
+    // 所有的图片的盒子
+    var liList = $("slider").getElementsByTagName("li");
+
+    main.onmouseover = function () {
+        arrow.style.opacity = 1;
+    }
+    main.onmouseout = function () {
+        arrow.style.opacity = 0;
+    }
+
+    //  存储了每个图片的位置显示信息
+    var json = [
+        {   //  1
+            width:400,
+            top:20,
+            left:50,
+            opacity:20,
+            z:2
+        },
+        {  // 2
+            width:600,
+            top:70,
+            left:0,
+            opacity:80,
+            z:3
+        },
+        {   // 3
+            width:800,
+            top:100,
+            left:200,
+            opacity:100,
+            z:4
+        },
+        {  // 4
+            width:600,
+            top:70,
+            left:600,
+            opacity:80,
+            z:3
+        },
+        {   //5
+            width:400,
+            top:20,
+            left:750,
+            opacity:20,
+            z:2
+        }
+    ];
+
+    //初始化显示
+    displayByJsonParam();
+    // 控制动画的显示，等显示完成后才能进行下次点击操作
+    var flag = true;
+    // 2个箭头的操作
+    var arrow = $("arrow");
+    var as = arrow.children;
+    for(var k in as) {
+        as[k].onclick = function () {
+            if(flag){
+                if(this.className == "prev") {
+                    // 左
+                    changeJson(false);
+                    flag = false
+                }else if(this.className == "next") {
+                    // 右
+                    changeJson(true);
+                    flag = false;
+                }
+            }
+        }
+    }
+
+    function changeJson(reverse) {
+        if(reverse == true){
+            // 将最后一个移除，放在第一个上面
+            json.unshift(json.pop());
+        }else if(reverse == false) {
+            // 将第一个移除，放在最后一个
+            json.push(json.shift());
+        }
+        displayByJsonParam();
+    }
+
+    function displayByJsonParam() {
+        for(var i = 0 ; i < json.length ; i ++ ){
+            animate(liList[i],{
+                width:json[i].width,
+                top:json[i].top,
+                left:json[i].left,
+                opacity:json[i].opacity / 100,
+                zIndex:json[i].z
+            },10, function () {
+                // 表示动画执行完毕，可以进行下次点击
+                flag = true;
+            });
+        }
+    }
+
+</script>

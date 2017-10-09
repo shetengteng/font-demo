@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--meta:vp-->
+    <!-- 用于显示的适配移动端的效果设定-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>携程</title>
+    <style>
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        img {
+            /*转换为块级元素*/
+            display: block;
+            /*图片宽度自适应*/
+            width: 100%;
+        }
+
+
+        nav .item {
+            /*高度固定*/
+            height: 100px;
+            margin: 10px 0;
+            display: flex;
+            background-color: pink;
+            border-radius: 20px;
+        }
+
+        nav .item:nth-child(2) {
+            background-color: red;
+        }
+
+        nav .item:nth-child(3) {
+            background-color: darkgreen;
+        }
+
+        nav .item:nth-child(4) {
+            background-color: indianred;
+        }
+
+        .item .pub {
+            flex: 1;
+            border-right: 1px solid #fff;
+        }
+
+        .item .sub {
+            flex: 2;
+        }
+
+        .item .sub a {
+            /*重点，使用宽度的50%*/
+            width: 50%;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            border-bottom: 1px solid #fff;
+            border-right: 1px solid #fff;
+            /*重点，采用内减模式*/
+            box-sizing: border-box;
+        }
+
+        .item:last-child .sub a {
+            width: 33.33%;
+        }
+
+        .extra {
+            display: flex;
+        }
+
+        .extra a {
+            flex: 1;
+        }
+
+        .footer .f-nav {
+            display: flex;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .f-nav li {
+            flex: 1;
+            text-align: center;
+            line-height: 40px;
+            list-style: none;
+        }
+
+        .copyright {
+            text-align: center;
+        }
+        .copyright p{
+            line-height: 40px;
+        }
+        .copyright a{
+            color:#333
+        }
+
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="banner">
+            <a href="#"><img src="images/flex/携程/banner.jpg" alt=""/></a>
+        </div>
+
+        <nav>
+            <div class="item">
+                <div class="pub"></div>
+                <div class="sub">
+                    <a href="javascript:;">海外酒店</a>
+                    <a href="javascript:;">团购</a>
+                    <a href="javascript:;">特惠酒店</a>
+                    <a href="javascript:;">客栈公寓</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pub"></div>
+                <div class="sub">
+                    <a href="javascript:;">火车票</a>
+                    <a href="javascript:;">汽车票船票</a>
+                    <a href="javascript:;">国际机票</a>
+                    <a href="javascript:;">自驾专车</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pub"></div>
+                <div class="sub">
+                    <a href="javascript:;">攻略身边</a>
+                    <a href="javascript:;">邮轮</a>
+                    <a href="javascript:;">周末游</a>
+                    <a href="javascript:;">保险签证</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="sub">
+                    <a href="javascript:;">门票玩乐</a>
+                    <a href="javascript:;">美食</a>
+                    <a href="javascript:;">全球购</a>
+                    <a href="javascript:;">礼品卡</a>
+                    <a href="javascript:;">出境WIFI</a>
+                    <a href="javascript:;">更多</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="extra">
+            <a href="#"><img src="images/flex/携程/extra_1.png" alt=""/></a>
+            <a href="#"><img src="images/flex/携程/extra_2.png" alt=""/></a>
+        </div>
+
+        <div class="footer">
+            <ul class="f-nav">
+                <li>客户端</li>
+                <li>关于</li>
+                <li>联系我们</li>
+            </ul>
+
+            <!-- 版本信息 -->
+            <div class="copyright">
+                <!-- 网站链接 -->
+                <p class="link">
+                    <a href="javascript:;">网站地图</a> |
+                    <a href="javascript:;">ENGLISH</a> |
+                    <a href="javascript:;">电脑版</a>
+                </p>
+                <p>©2015 携程旅行</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

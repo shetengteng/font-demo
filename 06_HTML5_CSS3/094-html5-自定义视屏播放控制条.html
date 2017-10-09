@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 引入图标的css，图标文字,实际生产中为min.css-->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        figcaption {
+            text-align: center;
+            line-height: 150px;
+            font-family: "microsoft yahei";
+            font-size: 24px;
+        }
+
+        .player {
+            width: 720px;
+            height: 360px;
+            margin: 10px auto;
+            border: 1px solid #000;
+            text-align: center;
+            background: #000 url(images/player/loading.gif) no-repeat center;
+
+            /*设置背景图片的宽度和高度比例*/
+            background-size: auto 100%;
+            border-radius: 24px;
+            position: relative;
+        }
+
+        .player video {
+            height: 100%;
+        }
+
+        /*控制面板*/
+        .controls {
+            width: 700px;
+            height: 40px;
+            background-color: rgba(255, 0, 0, .6);
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -350px ;
+            border-radius: 16px;
+
+        }
+
+        /*开关播放暂停*/
+        .controls .switch {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            /*background-color: pink;*/
+            left: 6px;
+            top: 10px;
+            line-height: 20px;
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+        }
+
+        /*进度条*/
+        .controls .progress {
+            width: 430px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, .7);
+            position: absolute;
+            top: 50%;
+            left: 40px;
+            margin-top: -5px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .controls .progress .current-progress {
+            height: 100%;
+            width: 0;
+            background-color: #fff;
+        }
+        
+        .controls .time {
+            font-size: 10px;
+            line-height: 10px;
+            position: absolute;
+            left: 480px;
+            top: 50%;
+            margin-top: -5px;
+            color: rgba(255, 255, 255, .7);
+        }
+
+        .controls .extend {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: 10px;
+            top: 10px;
+            line-height: 20px;
+            font-size: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+
+    </style>
+
+    <script>
+        // 熟悉video标签提供的api
+        window.onload = function () {
+
+            // 需求：
+            // 点击播放，暂停，并且切换图标
+            // 计算视屏的时长 视屏播放的时候，同步当前时间
+            // 点击全屏
+
+            // 获取video对象
+            var _video = document.querySelector("video");
+            // 获得播放按键
+            var playBtn = document.querySelector(".switch");
+            // 获取进度条
+            var curProgress = document.querySelector(".current-progress");
+            // 当前时间
+            var curTime = document.querySelector(".current-time");
+            // 总时间
+            var totalTime = document.querySelector(".total-time");
+            // 全屏按键
+            var extendBtn = document.querySelector(".extend");
+
+            //开始和暂停事件
+            playBtn.onclick = function() {
+                //如果视屏是暂停的
+               if(_video.paused) {
+                    _video.play();
+                   this.classList.remove("fa-play-circle");
+                   this.classList.add("fa-pause-circle");
+               } else {
+                   _video.pause();
+                   this.classList.remove("fa-pause-circle");
+                   this.classList.add("fa-play-circle");
+               }
+            }
+
+            // 当视屏可以播放的时候，即当视屏加载完成后事件
+            // 显示总时间
+            var totTime = 0;
+            _video.oncanplay = function () {
+                // 获取的是总秒数
+                totTime = _video.duration;
+                totalTime.innerHTML = getTime(totTime);
+            }
+
+            // 获取视屏当前时间事件
+            _video.ontimeupdate = function () {
+                // 获取的是当前的时间的总秒数，需要转换
+                curTime.innerHTML = getTime(_video.currentTime);
+                // 改变进度条的百分比
+                var curValue = totTime == 0 ? totTime : _video.currentTime/totTime * 100;
+                curProgress.style.width = curValue + "%";
+            }
+
+            function getTime(tTime) {
+                // 需要计算相应格式的时长，注意需要向下取整
+                var hour = Math.floor(tTime / 3600 );
+                var min =  Math.floor(tTime % 3600 / 60);
+                var second = Math.floor(tTime % 60);
+
+                // 将数据格式转换，有些需要添加0
+                hour = hour >= 10 ? hour : "0" + hour;
+                min = min >= 10 ? min : "0" + min;
+                second = second >=10 ? second : "0" + second;
+
+                return hour + ":" + min + ":" + second;
+            }
+
+            // 全屏操作
+            extendBtn.onclick = function () {
+                _video.webkitRequestFullScreen();
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- 多媒体-->
+    <figure>
+        <!-- 多媒体标题-->
+        <figcaption>视频案例</figcaption>
+        <div class="player">
+            <video>
+                <source src="video/movie.mp4"/>
+                <source src="video/movie.webm"/>
+                <source src="video/movie.ogg"/>
+                你的浏览器不支持html5的视频标签
+            </video>
+            <!-- 控制条-->
+            <div class="controls">
+                <!-- 开关-->
+                <!-- 使用fontawesome 提供的图片文字，引入css文件后，使用fa fa-xxx的类名即可-->
+                <a href="#" class="switch fa fa-play-circle"></a>
+
+                <!-- 进度条-->
+                <div class="progress">
+                    <div class="current-progress"></div>
+                </div>
+                <!-- 时间-->
+                <div class="time">
+                    <span class="current-time">00:00:00</span>/
+                    <span class="total-time">00:00:00</span>
+                </div>
+                <!-- 全屏-->
+                <a href="#" class="extend fa fa-arrows-alt"></a>
+                
+            </div>
+        </div>
+    </figure>
+
+</body>
+</html>

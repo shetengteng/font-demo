@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*选择的是后代，不一定是儿子*/
+		/*这个选择器要知道是后代，而不是儿子。选择的是所有.div1“中的”p，就是后代p*/
+		.div1 p{
+			color: red;
+		}
+	
+		/*空格可以多次出现*/
+		.div2 .li2 p{
+			color: red;
+		}
+
+		/*后代选择器，就是一种平衡：共性、特性的平衡。当要把某一个部分的所有的什么，进行样式改变，就要想到后代选择器*/
+		/*后代选择器，描述的是祖先结构*/
+
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<ul>
+			<li>
+				<p>段落</p>
+				<p>段落</p>
+				<p>段落</p>
+				<p>段落</p>
+			</li>
+		</ul>
+	</div>
+
+	<div class="div2">
+		<ul>
+			<li>
+				<p>段落2</p>
+				<p>段落2</p>
+				<p>段落2</p>
+				<p>段落2</p>
+			</li>
+			<li class="li2">
+				<p>段落2</p>
+				<p>段落2</p>
+				<p>段落2</p>
+				<p>段落2</p>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

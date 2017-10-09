@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--第一步：引入项目下面生成的fontclass代码：-->
+    <link rel="stylesheet" type="text/css" href="./picfont/iconfont.css">
+    <style>
+        p {
+            width: 200px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            font-size: 30px;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .icon::before {
+            /*查看iconfont.css文件获得*/
+            content: "\e609";
+            font-family: iconfont;
+        }
+    </style>
+</head>
+<body>
+    <p class="icon">客服电话</p>
+    <span class="icon">使用类的方式制作icon扩展性更强</span>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>字体的使用</title>
+	<style type="text/css">
+		body{
+			/*字体的使用场景示例*/
+			/*电脑系统中如果没有华文彩云，那么会使用默认字体，宋体*/
+			font-family: "华文彩云";
+			/*一般只使用：微软雅黑，宋体，黑体，如果需要使用其他字体，需要切图*/
+
+			/*使用，号隔开可以设置备用字体，如果电脑中没有微软雅黑，那么就可以使用宋体
+			注意：备用字体可以有多个，都用,号隔开即可*/
+			font-family: "微软雅黑","宋体";
+
+			/*如果要使得英文和中文使用不同的字体，那么需要将英文字体放在中文字体最前面*/
+			font-family: "Times New Roman","宋体";
+
+			/*所有的中文字体也有英文的别名*/
+			font-family: 14px/24px "Microsoft YaHei","SimSun";   
+			font-family: "SimSun"; /*宋体*/
+
+			/*行高可以用百分比，表示字号的百分之多少。一般来说，都是大于100%的，因为行高一定要大于字号*/
+			font:12px/200% "宋体"; /*等价于：font:12px/24px “宋体”;*/
+		}
+	</style>	
+</head>
+<body>
+
+</body>
+</html>

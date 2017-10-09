@@ -1,0 +1,252 @@
+@charset "UTF-8";
+.banner604{
+    position: relative;
+    /*这里的banner是没有高度的，定位与浮动，父级元素是没有高度的，子元素脱标了*/
+}
+
+.banner604 a{
+    /*使用绝对定位，不占用位置*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*此处必须100% ，要和父亲元素的div一样宽，否则会和内容一样宽*/
+    width: 100%;
+    height: 604px;
+    background: url(../images/banner.jpg) no-repeat top center;
+}
+
+.main{
+    /*使用相对定位，将main的图层放在banner604的上面*/
+    position: relative;
+    /*height: 500px; 父亲没有高度，需要用子元素撑出高度，需要清除浮动*/
+}
+
+.main .slider {
+    float: left;
+    width: 730px;
+    height: 453px;
+    margin-left: 220px;
+    margin-top: 12px;
+    background-color: pink;
+    position: relative;
+}
+
+.main .news {
+    float:left;
+    width: 248px;
+    height: 452px;
+    border: 1px solid #e4e4e4;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.main .slider .circle {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    margin-left: -66px ;
+}
+
+.main .slider .circle li{
+    float: left;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    background-color: #3e3e3e;
+    margin:0 2px;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.main .slider .circle li:hover,
+.main .slider .circle li.current{
+    background-color: #B61D1D
+}
+
+.main .slider .arrow-R,
+.main .slider .arrow-L{
+    position: absolute;
+    width: 28px;
+    height: 62px;
+    /*垂直居中操作*/
+    top: 50%;
+    margin-top: -31px;
+    color: #fff;
+    font: 600 18px/62px "simsun";
+    text-align: center;
+    /*css3中的背景半透明,三基色+透明度*/
+    background: rgba(0,0,0,.2);
+}
+
+.arrow-L{
+    /*左*/
+    left: 0;
+}
+.arrow-R{
+    /*右边*/
+    right: 0;
+}
+
+/*注意css的权限大小的覆盖*/
+.main .slider .arrow-L:hover,
+.main .slider .arrow-R:hover {
+    background: rgba(0,0,0,.5);
+    color:#fff;
+}
+
+.main .news .jd-news {
+    height: 200px;
+    border-bottom: 1px dashed #e8e8e7;
+}
+
+.main .news .jd-life {
+    height: 252px;
+}
+
+.main .news .jd-news .dt,
+.main .news .jd-life .dt
+{
+    height: 43px;
+    border-bottom: 1px dotted #e8e8e7;
+
+}
+
+.jd-news .dt h3,
+.jd-life .dt h3 {
+    float: left;
+    font: 14px/43px "micosoft yahei";
+    color: #666;
+    padding-left: 15px;
+}
+
+.jd-news .dt a {
+    float: right;
+    font: 10px/43px "simsun";
+    padding-right: 15px;
+}
+
+.jd-news .dd ul {
+
+    padding: 10px 0 0 15px;
+}
+
+.jd-news .dd ul li {
+    line-height: 28px;
+}
+
+.jd-news .dd li span {
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.jd-life .dd {
+    overflow: hidden;
+}
+
+/*注意：这里是重点，轮播图的原理也在，ul比4个li大，然后用.dd进行hidden，否则4个li因为宽度问题摆不下*/
+.jd-life .dd ul {
+    width: 252px;
+}
+
+.jd-life .dd li {
+    float: left;
+    width: 62px;
+    height: 70px;
+    border: 1px solid #e4e4e4;
+    margin: -1px 0 0 -1px;
+}
+
+.jd-life .dd li.song{
+    background: url(../images/song.png) no-repeat top right;
+}
+
+.jd-life .dd li.mian{
+    background: url(../images/mian.png) no-repeat top right;
+}
+
+.jd-life .dd li a {
+    /*因为是行内元素，需要转换为块级元素*/
+    display: block;
+    height: 22px;
+    padding-top: 46px;
+    text-align: center;
+    position: relative;
+}
+
+.jd-life .dd li a i {
+    /*行内元素通过定位，通过display:block转换为块级元素
+    如果是行内元素，给定的padding没有效果*/
+    position: absolute;
+    /*水平居中*/
+    left: 18px;
+    top: 12px;
+    width: 25px;
+    height: 25px;
+    background: url(../images/icon_lifeserv.png) no-repeat;
+}
+
+
+
+.jd-life .dd li.life-icon1 i{
+    background-position: -25px 0;
+}
+
+.jd-life .dd li.life-icon2 i{
+    background-position: right -26px;
+}
+
+.jd-life .dd li.life-icon3 i{
+    background-position: -25px -51px;
+}
+
+.jd-life .dd li.life-icon4 i{
+    background-position: -25px -74px;
+}
+
+.jd-life .dd li.life-icon5 i{
+    background-position: -25px -100px;
+}
+
+.jd-life .dd li.life-icon6 i{
+    background-position: -25px -125px;
+}
+
+.jd-life .dd li.life-icon7 i{
+    background-position: -25px -150px;
+}
+
+.jd-life .dd li.life-icon8 i{
+    background-position: -25px -175px;
+}
+.jd-life .dd li.life-icon9 i{
+    background-position: -25px -200px;
+}
+
+.jd-life .dd li.life-icon10 i{
+    background-position: -25px -225px;
+}
+
+.todays {
+    /*由于上面的盒子是相对浮动，那么下面的盒子也需要相对浮动*/
+    position: relative;
+    padding: 10px 0 18px 0;
+}
+
+.todays .jxy-R {
+    width: 1000px;
+    height: 160px;
+    float: right;
+    /*用于轮播图的截取操作*/
+    overflow: hidden;
+}
+.todays .jxy ul {
+    /*用于轮播图的使用*/
+    width: 500%;
+}
+
+.todays .jxy ul li{
+    float: left;
+    padding-left: 1px;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*使用边框的斜角，制作等腰三角形*/
+		div{
+			width: 0px;
+			height: 0px;
+			/*这里的颜色与背景的白色一致*/
+			border:20px solid white;
+			/*这里的颜色是三角形的颜色*/
+			border-top-color: blue;
+			/*去除底边框，使得三角形所占的空间更小*/
+			border-bottom:none;
+
+			transition:all 1s ease 0s;
+		}
+		/*css3中的动作*/
+		div:hover{
+			transform: rotate(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

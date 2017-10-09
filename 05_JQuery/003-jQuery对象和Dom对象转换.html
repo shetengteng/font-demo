@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            // 在jQuery中可以使用原生的js
+            var box = document.getElementById("box");
+            var cbox = document.getElementsByClassName("box");
+            var div = document.getElementsByTagName("div");
+
+            var jQbox = $("#box");
+            var jQCbox = $(".box");
+            var jQdiv = $("div");
+
+            console.log(box);
+            console.log(jQbox);
+            console.log("--------------------");
+            console.log(cbox);
+            console.log(jQCbox);
+            console.log("--------------------");
+            console.log(div);
+            console.log(jQdiv);
+            console.log("--------------------");
+            // JQuery对象是一个数组类型的，包含js原生对象
+
+            // 因为JQuery封装了dom对象，添加了许多新的功能
+            // 如，JQuery添加了css函数
+            jQdiv.css({"width":100,"height":100,"background-color":"red","margin":100});
+
+            // 普通dom对象转换为jQuery对象
+            box = $(box);
+            cbox = $(cbox);
+            div = $(div);
+
+            console.log(box);
+            console.log(jQbox);
+            console.log("----------2----------");
+            console.log(cbox);
+            console.log(jQCbox);
+            console.log("----------2----------");
+            console.log(div);
+            console.log(jQdiv);
+            console.log("----------2----------");
+
+            // 显示成功，表示已经转换为jQuery对象
+            div.css({"width":100,"height":100,"background-color":"blue","margin":100});
+            box.css("background","red");
+
+            // jQuery对象转换为js对象的2种方式
+            // jQdiv数组中前几个就是js对象
+            jQdiv[0].style.backgroundColor = "black"; // 推荐使用该方式转换
+            jQdiv.get(3).style.backgroundColor = "pink";
+
+        });
+    </script>
+</head>
+<body>
+
+<div></div>
+<div class="box"></div>
+<div id="box"></div>
+<div class="box"></div>
+<div></div>
+</body>
+</html>

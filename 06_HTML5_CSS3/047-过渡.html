@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            background-color: red;
+            margin: 100px auto;
+
+            /*过渡属性
+                参数
+                    过渡使用的属性
+                    持续的时间
+                    默认是线性变化，可以设置匀速(linear)
+                            1、ease：（逐渐变慢）默认值，ease函数等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0).
+                            2、linear：（匀速），linear 函数等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0).
+                            3、ease-in：(加速)，ease-in 函数等同于贝塞尔曲线(0.42, 0, 1.0, 1.0).
+                            4、ease-out：（减速），ease-out 函数等同于贝塞尔曲线(0, 0, 0.58, 1.0).
+                            5、ease-in-out：（加速然后减速），ease-in-out 函数等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)
+                            6、cubic-bezier：（该值允许你去自定义一个时间曲线）， 特定的cubic-bezier曲线。 (x1, y1, x2, y2)四个值特定于曲线上点P1和点P2。所有值需在[0, 1]区域内，否则无效
+
+                    延时时间，在多少时间后执行,默认是0s
+            */
+            transition: width 2s 2s, background-color 3s linear 1s;
+            /*border-radius: 100px;*/
+
+            /*如果多个过渡的属性的时间是相同的 ，可以简写*/
+            /*transition: all 2s;*/
+
+        }
+
+        /*实现一个渐变的效果，在鼠标移动在这之上的时候*/
+        .box:hover {
+            width: 600px;
+
+            background-color: blue;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

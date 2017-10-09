@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			/*将块级元素转为行内元素，此时该块级元素与span无异，可以并排了*/
+			display:inline;
+			/*注意，转换过后，高度和宽度都转换为行内元素特性（设置无效）*/
+			width: 400px;
+			height: 80px;
+			background-color: pink;
+		}
+
+		h1{
+			display: inline;
+			background-color: greenyellow;
+		}
+	</style>
+</head>
+<body>
+	<div>我是一个div</div>
+	<div>我是一个div</div>
+
+	<h1>块</h1>
+	<h1>级</h1>
+	<h1>元</h1>
+	<h1>素</h1>
+
+</body>
+</html>

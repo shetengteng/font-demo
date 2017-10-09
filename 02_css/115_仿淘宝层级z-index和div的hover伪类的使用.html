@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+       /* .test {
+            width: 150px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin-top: 100px;
+            float: left;
+		使用-1像素，遮盖边框	
+            margin-left: -1px;
+        }
+        .test:hover {
+            border: 1px solid #f40;
+		此处用相对定位增加z-index的值为0，提到最上面
+            position: relative;
+        } */
+        .test {
+            width: 150px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin-top: 100px;
+            float: left;
+            margin-left: -1px;
+		/*使用相对定位，考虑到div中有其他元素进行绝对定位*/
+            position: relative;
+        }
+        .test:hover {
+            border: 1px solid #f40;
+		/*将该层级显示放在最上面，增加z-index的值*/	
+            z-index: 1;
+
+        }
+    </style>
+</head>
+<body>
+<div class="test"></div>
+<div class="test"></div>
+<div class="test"></div>
+<div class="test"></div>
+<div class="test"></div>
+</body>
+</html>

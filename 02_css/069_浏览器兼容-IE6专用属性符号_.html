@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 4px;
+			/*_是IE6专用的后门属性前缀，其他浏览器不识别
+			此处IE6是别的是font-size,其他浏览器跳过
+			添加此处的意义在于，IE6不兼容4px高度的盒子，在此处特地兼容IE6 添加了_font-size属性，而对其他浏览器可以视为不需要*/
+			_font-size:0;
+			border:1px solid red;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

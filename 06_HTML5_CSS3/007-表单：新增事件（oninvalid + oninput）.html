@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        form {
+            width: 100%;
+            /*最大宽度*/
+            max-width: 640px;
+            /*最小宽度*/
+            min-width: 320px;
+            margin: 0 auto;
+            font-family: "Microsoft Yahei";
+            font-size: 20px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            height: 30px;
+            margin: 10px 0;
+        }
+
+        div {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<!--novalidate 关闭h5自带表单的默认验证功能-->
+<!--<form action="" method="post" novalidate>-->
+<form action="" method="post" >
+    <fieldset>
+        <legend>新增事件</legend>
+        <label>用户名:
+            <span id="num"></span>
+        </label>
+        <input type="text" name="username" id="username"/>
+        <label>密码</label>
+        <input type="password" name="pwd" id="pwd"/>
+
+        <label >邮箱</label>
+        <input type="email" name="email" id="email"/>
+        
+        <input type="submit" value="提交"/>
+    </fieldset>
+</form>
+<script>
+    // 表单事件
+    // oninput 当用户输入的时候的时间
+    var username = document.getElementById("username");
+    var num = 0;
+    username.oninput = function () {
+        num ++;
+        document.getElementById("num").innerHTML = "输入字数-"+  username.value.length;
+        if(  username.value.length === 0) {
+            document.getElementById("num").innerHTML = "";
+        }
+    }
+    // oninvalid 当验证不通过时触发
+    var email = document.getElementById("email");
+    email.oninvalid = function () {
+        // 如果此处有函数执行，那么原本的验证则不执行
+        //alert("验证不通过");
+        // 可以修改原生的验证不通过的提示信息,注意不能有alert执行，否则下列的不执行
+        this.setCustomValidity("邮箱错误");
+    }
+
+
+</script>
+</body>
+</html>

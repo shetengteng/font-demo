@@ -1,0 +1,526 @@
+@charset "UTF-8";
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin:0;
+    padding:0;
+}
+/*这里的ouline-style表示去除样式*/
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }
+
+ul, ol {
+    list-style:none;
+}
+
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+
+select, input { vertical-align:middle;}
+
+select, input, textarea { font-size:12px; margin:0; }
+
+/*防止拖动*/
+textarea { resize:none; }
+
+/*  去掉图片低测默认的3像素空白缝隙*/
+img {border:0;	vertical-align:middle; }
+table { border-collapse:collapse; }
+body {
+
+    /*使用编码表示宋体*/
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    color:#666;
+    background:#fff
+}
+/*清除浮动*/
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table;
+}
+/*清除浮动*/
+.clearfix:after{
+    clear:both;
+}
+/*清除浮动兼容ie*/
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+
+/*清除超链接的样式*/
+a {color:#666; text-decoration:none; }
+a:hover{color:#C81623;}
+
+h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;}
+
+/*s下划线 i斜体 em倾斜*/
+s,i,em{font-style:normal;text-decoration:none;}
+
+/*权重最高，尽量少用*/
+.col-red{color: #C81623!important;}
+
+/*公共类*/
+/*版心 提取 */
+.w {
+    width: 1210px;
+    margin:0 auto;
+}
+.fl {
+    float:left
+}
+.fr {
+    float:right
+}
+.al {
+    text-align:left
+}
+.ac {
+    text-align:center
+}
+.ar {
+    text-align:right
+}
+.hide {
+    display:none
+}
+
+/*遮罩开始*/
+.mask {
+    display: none;
+    width: 100%;
+    height: 100%;
+    /*注意是fixed
+    为什么是fixed？如果是absolute，同时top0 left0 ，那么下拉的话会遮盖不全
+    因为width和height的大小是浏览器的窗口大小
+    如果是fixed，那么会固定在当前浏览器上，不跑动*/
+    position: fixed;
+    background: rgba(0, 0, 0, .5);
+    /*注意z-index的值*/
+    z-index: 999;
+}
+
+.box {
+    display: none;
+    width: 400px;
+    height: 250px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    margin: -125px 0 0 -200px;
+}
+
+.box span {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+
+/*头部导航开始*/
+.shortcut {
+    height: 30px;
+    /*垂直居中*/
+    line-height: 30px;
+    background-color: #f1f1f1;
+    /*为了防止定位使用*/
+    width: 100%;
+}
+
+.shortcut div.dt,
+.shortcut ul li.fore{
+    padding:0 20px 0 10px;
+    /*background-color: pink;*/
+    /*进行相对定位*/
+    position: relative;
+}
+
+.shortcut  i{
+    /*表示字体加粗：bold是700 15px表示font-size ，后面的15px表示行高line-height
+    尽量使用数字表示粗体*/
+    font: 400 15px/15px "SimSun";
+    /*一旦定位，行内元素编程块级元素*/
+    position: absolute;
+    top: 13px;
+    right: 3px;
+    /*将菱形切一半*/
+    height: 7px;
+    width: 15px;
+    /*对多出的部分进行隐藏*/
+    overflow: hidden;
+}
+
+.shortcut  i s{
+    /*设置定位之后就有大小了*/
+    position: absolute;
+    top: -8px;
+    left: 0;
+}
+
+.shortcut .fr li{
+    float: left;
+    padding: 0 10px;
+}
+
+.shortcut .fr li.line {
+    width: 1px;
+    height: 12px;
+    background-color: #ddd;
+    margin-top: 10px;
+    padding: 0;
+}
+
+/*添加手机小图标，左边的padding需要增加*/
+.shortcut .fr .tel_jd{
+    padding:0 20px 0 25px;
+
+}
+
+.shortcut .tel{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: url(../images/sprite.png) no-repeat 0 0;
+    width: 15px;
+    height: 20px;
+}
+/*顶部end*/
+/*topbanner start*/
+.topbanner {
+    background-color: #8a25c6;
+
+}
+
+.topbanner .w_banner{
+    position: relative;
+}
+
+.topbanner a.close-banner{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 19px;
+    height: 19px;
+    background: url(../images/close.png) no-repeat;
+}
+
+.topbanner a.close-banner:hover {
+    /*图片不变，x轴不变，变化的是y的位置，使用bottom简洁*/
+    background-position: bottom;
+}
+
+/*topbanner end*/
+/*搜索栏 start*/
+.logo{
+    float: left;
+    width: 362px;
+    height: 75px;
+    padding-top: 25px;
+    /*让图片作为背景图，然后在背景图上添加超链接，SEO优化使用
+    由于padding上也会有背景图，因此需要设定背景图的位置*/
+    background: url(../images/logo.png) no-repeat 0 25px;
+    position: relative;
+}
+
+.logo .jd-a{
+    display: block;
+    width: 270px;
+    height: 60px;
+    text-indent: -9999em;
+}
+
+.logo .db11{
+    position: absolute;
+    top: 10px;
+    left: 168px;
+    width: 180px;
+    height: 80px;
+    background-color: pink;
+
+}
+.search{
+    float: left;
+    width: 538px;
+    height: 35px;
+    /*background-color: skyblue;*/
+    padding-top: 25px;
+}
+
+.search input{
+    /*表单元素属于行内块元素，元素与元素之间始终有缝隙，因而使用浮动解决*/
+    float: left;
+    width: 450px;
+    height: 32px;
+    border: 2px solid #B61D1D;
+    padding-left: 4px;
+    color: #666;
+    font: 14px/32px "micosoft yahei";
+}
+
+.search button{
+    float: left;
+    width: 80px;
+    height: 36px;
+    background-color: #B61D1D;
+    color:#fff;
+    font: 16px/36px "micosoft yahei";
+    /*注意：button在浮动之后，就没有交互效果了，没有小手了，需要添加*/
+    /*值：default move pointer text（用于文本输入的 形似I）*/
+    cursor: pointer;
+}
+
+.car{
+    float: right;
+    width: 96px;
+    height: 34px;
+    margin: 25px 65px 0 0;
+    /*background-color: purple;*/
+    border: 1px solid #dfdfdf;
+    padding-left: 43px;
+    line-height: 34px;
+    position: relative;
+}
+
+.car .icon1{
+    /*定位后，变为块级元素*/
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 16px;
+    height: 13px;
+    /*兼容IE6*/
+    _font-size: 0;
+    background: url(../images/sprite.png) no-repeat -1px -59px;
+
+}
+
+.car .icon2{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font: 400 13px/13px "simsun";
+}
+
+.car .icon3{
+    position: absolute;
+    top: -4px;
+    width: 16px;
+    height: 14px;
+    background-color: #c81623;
+    font-size: 12px;
+    line-height: 14px;
+    color: #fff;
+    text-align: center;
+    /*使用css3的圆角，而IE6不兼容也不管，不伤害整体布局即可*/
+    /*注意，每个角都可以指定*/
+    border-radius: 50% 50% 50% 0;
+}
+
+.hotwords {
+    float:left;
+    width: 500px;
+    padding: 7px 0;
+}
+
+.hotwords a{
+    margin-right: 6px;
+}
+/*搜索栏 end*/
+
+/*nav start*/
+.jd-nav {
+    width: 100%;
+    height: 44px;
+    border-bottom: 2px solid #b1191a;
+}
+
+.jd-nav .dropdown {
+    width: 210px;
+    height: 44px;
+    float: left;
+    /*定位之后可以调节层次关系*/
+    position: relative;
+    z-index: 10;
+    /*为了让大多数浏览器兼容，此处要用visible*/
+    overflow: visible;
+}
+
+.jd-nav .dropdown .dt{
+    /*高度与dropdown一致*/
+    height: 44px;
+    /*background-color: blue;*/
+
+}
+
+.jd-nav .dropdown .dd{
+    height: 465px;
+    background-color: #c81623;
+    margin-top: 2px;
+    border: 1px solid #b1191a;
+    border-top: none;
+}
+
+.jd-nav .dropdown .dt a{
+    display: block;
+    height: 44px;
+    color: #fff;
+    font: 400 15px/44px "micosoft yahei";
+    background-color: #b1191a;
+    padding-left: 10px;
+}
+
+.jd-nav .dropdown .items {
+    color: #fff;
+    padding-left: 10px;
+    font: 15px/31px "micosoft yahei";
+}
+
+.jd-nav .dropdown .items h3{
+    float: left;
+}
+
+.jd-nav .dropdown .items span{
+    float: right;
+    padding-right: 15px;
+    font-family: "simsun";
+    font-weight: 500;
+}
+
+.jd-nav .navitems {
+    float: left;
+    height: 44px;
+    width: 690px;
+    /*background-color: pink;*/
+}
+
+.jd-nav .navitems li{
+    float: left;
+}
+
+.jd-nav .navitems li a{
+    display: block;
+    height: 44px;
+    font: 400 15px/44px "micosoft yahei";
+    padding:0 20px;
+    color: #333;
+}
+
+.jd-nav .navitems li a:hover{
+    color: #b1191a;
+}
+
+.jd-nav .navitems li.new-hot{
+    background: url(../images/new.jpg) no-repeat top right;
+}
+
+.jd-nav .bike {
+    float: right;
+    width: 140px;
+    height: 44px;
+    background: yellow url(../images/bike.jpg) no-repeat;
+}
+
+.jd-nav .bike a{
+    /*只要给一个高度，因为高度不继承，高度继承*/
+    height: 44px;
+    display: block;
+    text-indent: -9999em;
+}
+
+/*nav end*/
+
+/*footer start*/
+.jd-footer .slogen {
+    height: 54px;
+    padding: 20px 0;
+    background-color: #f5f5f5;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.jd-footer .slogen .item{
+    width: 302px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+}
+
+.jd-footer .slogen .item.slogen1 {
+    margin-left: -608px;
+}
+
+.jd-footer .slogen .item.slogen2 {
+    margin-left: -304px;
+}
+
+.jd-footer .slogen .item.slogen3 {
+    margin-left: 0;
+}
+
+.jd-footer .slogen .item.slogen4 {
+    margin-left: 304px;
+}
+
+.jd-footer .service dl {
+    float: left;
+    width: 198px;
+    font-family: "micosoft yahei";
+}
+
+.jd-footer .service dt,
+.jd-footer .coverage .dt{
+    font-size: 16px;
+    height: 28px;
+}
+
+.jd-footer .service dd {
+    height: 20px;
+}
+
+.jd-footer .service .coverage {
+    float: right;
+    /*需要有高和宽，否则文字会环绕*/
+    width: 210px;
+    height: 165px;
+    background: url("../images/china.png") no-repeat left bottom;
+    font-family: "micosoft yahei";
+}
+
+.jd-footer .service .w{
+    /*下横线*/
+    border-bottom: 1px solid #ccc;
+}
+
+.coverage p{
+    line-height: 18px;
+}
+
+.coverage .dd{
+    margin-top: 10px;
+}
+
+.coverage .detail {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.jd-footer .bottom{
+    padding-top: 23px;
+    text-align: center;
+}
+
+.jd-footer .bottom .links a{
+    padding: 0 6px;
+    line-height: 25px;
+}
+
+.jd-footer .message{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.jd-footer .message a{
+    margin-right: 5px;
+}
+/*footer end*/

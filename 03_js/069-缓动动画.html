@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+
+        .box {
+            width: 100px;
+            height: 100px;
+            margin-top: 100px;
+            background-color: pink;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            var start = document.getElementById("start");
+            var div = start.nextElementSibling;
+            var num = 0;
+            var timer = null;
+            start.onclick = function () {
+                timer =  setInterval(function(){
+                    if(num >= 500) {
+                        clearInterval(timer);
+                    }else{
+                        num =  num + (500-num)/10 ;
+                        div.style.left = num + "px";
+                    }
+                },100);
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="start">start</button>
+<div class="box"></div>
+</body>
+</html>

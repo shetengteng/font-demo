@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+
+            $("button").click(function () {
+                // 创建一个新的jq的对象li
+                var newLi = $("<li>创建的新li，使用append方式</li>");
+
+                // append() 在盒子的末尾添加一个元素
+                $("ul").append(newLi);
+
+                // 也可以直接添加li
+                //$("ul").append("<li>创建的新li</li>");
+
+                //而appendTo表示的是：newLi.appendTo($("ul")); 不常用
+
+                // prepend() 在盒子的最前面添加元素
+                $("ul").prepend("<li>创建的新li，使用prepend方式</li>");
+
+                // after() 以兄弟节点为基点添加
+                $("ul li").after("<li>创建新的li，使用after的方式</li>");
+
+                // before() 以兄弟节点为基点添加
+                $("ul li").before("<li>创建新的li，使用before的方式</li>");
+            });
+
+
+        })
+    </script>
+</head>
+<body>
+<button>添加li</button>
+<ul>
+    <li>本地的li</li>
+</ul>
+
+</body>
+</html>

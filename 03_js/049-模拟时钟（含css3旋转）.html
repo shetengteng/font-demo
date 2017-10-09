@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .clock {
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            background: url(images/clocks/clock.jpg) no-repeat center center;
+            position: relative;
+        }
+
+        .clock div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .h {
+            background: url(images/clocks/hour.png) no-repeat center center;
+        }
+        .m {
+            background: url(images/clocks/minute.png) no-repeat center center;
+        }
+        .s {
+            background: url(images/clocks/second.png) no-repeat center center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var h = document.getElementById("hour");
+            var m = document.getElementById("minute");
+            var s = document.getElementById("second");
+            // 定时器设置，每隔200ms运行一次，刷新时间
+            setInterval(function(){
+                var date = new Date();
+                var hour = parseInt(date.getHours());
+                var min =  parseInt(date.getMinutes());
+                var second =  parseInt(date.getSeconds());
+                var ms = parseInt(date.getMilliseconds());
+
+                second = second + ms/1000; // 注意：如果没有ms，那么每次刷新就是单个秒的整数，无论间隔是多大，都是跳着走
+                min = min + second / 60 ;
+                hour = hour%12 + min / 60 ; // 注意：此处有12进制
+
+                // 计算旋转多少度，使用css3的旋转效果
+                var hAngle = hour * 360 / 12 ;
+                var mAngle = min*6 ;
+                var sAngle = second*6 ; // 每秒6度
+
+                // css3的语法，旋转,注意是W大写开头
+                // chrome浏览器的旋转
+                s.style.WebkitTransform = "rotate("+sAngle+"deg)";
+                m.style.WebkitTransform = "rotate("+mAngle+"deg)";
+                h.style.WebkitTransform = "rotate("+hAngle+"deg)";
+                // 火狐的旋转
+                s.style.MozTransform = "rotate("+sAngle+"deg)";
+                m.style.MozTransform = "rotate("+mAngle+"deg)";
+                h.style.MozTransform = "rotate("+hAngle+"deg)";
+
+            },200);
+        }
+    </script>
+</head>
+<body>
+<div class="clock">
+    <div class="h" id="hour"></div>
+    <div class="m" id="minute"></div>
+    <div class="s" id="second"></div>
+</div>
+</body>
+</html>

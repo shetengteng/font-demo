@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "microsoft yahei";
+            background-color: #F7F7F7;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wrapper {
+            width: 1024px;
+            margin: 0 auto;
+        }
+
+        .wrapper > section {
+            min-height: 300px;
+            margin-bottom: 30px;
+            box-shadow: 1px 1px 4px #DDD;
+            background-color: #FFF;
+        }
+
+        .wrapper > header {
+            text-align: center;
+            line-height: 1;
+            padding: 20px;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        .wrapper section > header {
+            line-height: 1;
+            padding: 10px;
+            font-size: 22px;
+            color: #333;
+            background-color: #EEE;
+        }
+
+        .wrapper .wrap-box {
+            padding: 20px;
+        }
+
+        .wrapper .brief {
+            min-height: auto;
+        }
+        .wrapper .flex-img {
+            width: 100%;
+        }
+
+        /*全局设置*/
+        section ul {
+            /*采用伸缩布局*/
+            display: flex;
+            border: 1px solid #000;
+        }
+
+        section ul li {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            text-align: center;
+            line-height: 200px;
+            margin: 10px;
+        }
+
+        /*主轴的对齐方式*/
+        section:nth-child(3) ul {
+
+            flex-direction: row;
+            /*主轴开始的方向对齐*/
+            justify-content: flex-start;
+        }
+
+        section:nth-child(4) ul {
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+        }
+
+        section:nth-child(5) ul {
+            flex-direction: row-reverse;
+            /*主轴结束的方向开始对齐*/
+            justify-content: flex-end;
+        }
+
+        section:nth-child(6) ul {
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+        section:nth-child(7) ul {
+            /*居中对齐*/
+            justify-content: center;
+        }
+
+        section:nth-child(8) ul {
+            /*主轴方向垂直*/
+            flex-direction: column;
+            /*居中对齐*/
+            justify-content: center;
+        }
+
+        section:nth-child(9) ul {
+            /*居中对齐,空白平分*/
+            justify-content: space-around;
+        }
+
+        section:nth-child(10) ul {
+            /*居中对齐,2端对齐中间平分*/
+            justify-content: space-between;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>CSS3-伸缩布局详解</header>
+        <!-- 简介-->
+        <section class="brief">
+            <header>justify-content</header>
+            <div class="wrap-box">
+                <p>主轴方向对齐，可以调整元素在主轴方向上的对齐方式，包括flex-start、flex-end、center、space-around、space-between几种方式</p>
+            </div>
+        </section>
+
+        <section>
+            <header>justify-content:flex-start && flex-direction: row</header>
+            <div class="wrap-box">
+                <p>主轴对齐方式，主轴开始的方向对齐</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <header>justify-content:flex-start && flex-direction: row-reverse</header>
+            <div class="wrap-box">
+                <p>主轴对齐方式，主轴开始的方向对齐,注意，此时开始的方向在右边</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <header>justify-content:flex-end && flex-direction: row-reverse</header>
+            <div class="wrap-box">
+                <p>主轴对齐方式，主轴结束的方向对齐,注意，此时开始的方向在左边</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <header>justify-content:flex-end && flex-direction: row</header>
+            <div class="wrap-box">
+                <p>主轴对齐方式，主轴结束的方向对齐,注意，此时开始的方向在右边</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <header>justify-content:center && flex-direction: row</header>
+            <div class="wrap-box">
+                <p>主轴对齐方式，居中对齐</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <header>justify-content:center && flex-direction: column</header>
+            <div class="wrap-box">
+                <p>主轴对齐方式，垂直居中对齐，无效</p>
+                <ul>
+                    <li>1</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <header>justify-content:space-around && flex-direction: row</header>
+            <div class="wrap-box">
+                <p>主轴对齐方式，居中对齐,空白平分,空白环绕，可以自适应</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <header>justify-content:space-between && flex-direction: row</header>
+            <div class="wrap-box">
+                <p>主轴对齐方式，2端对齐，中间平分</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;padding: 0;
+        }
+
+        img {
+            display: block;
+        }
+
+        .items {
+            width: 1240px;
+            height: 260px;
+            margin: 100px auto;
+            padding-left: 20px;
+        }
+
+        .item {
+            width: 224px;
+            float: left;
+            background-color: #fff;
+            margin-right: 20px;
+            border: 1px solid #eee;
+            /*给盒子的边框添加阴影*/
+            box-shadow: 0 2px 0 #eee;
+        }
+        /*图片显示部分*/
+        .item .pic {
+            height: 112px;
+            position: relative;
+        }
+
+        /*摘要部分*/
+        .item .brief {
+            height: 140px;
+            background-color: #fff;
+        }
+        /*直接子img标签*/
+        .item .pic>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .item .logo {
+            width: 80px;
+            height: 80px;
+            border: 4px solid #fff;
+            position: absolute;
+            left: 50%;
+            margin-left: -44px;
+            border-radius: 50%;
+            overflow: hidden;
+            bottom: -44px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="items">
+
+        <div class="item">
+            <div class="pic">
+                <img src="images/border/item_1.jpg" alt=""/>
+                <a href="javascript:;" class="logo"><img src="images/border/logo_1.jpg" alt=""/></a>
+            </div>
+            <div class="brief"></div>
+        </div>
+
+        <div class="item">
+            <div class="pic">
+                <img src="images/border/item_2.jpg" alt=""/>
+                <a href="javascript:;" class="logo"><img src="images/border/logo_2.jpg" alt=""/></a>
+            </div>
+            <div class="brief"></div>
+        </div>
+
+        <div class="item">
+            <div class="pic">
+                <img src="images/border/item_3.jpg" alt=""/>
+                <a href="javascript:;" class="logo"><img src="images/border/logo_3.jpg" alt=""/></a>
+            </div>
+            <div class="brief"></div>
+        </div>
+
+        <div class="item">
+            <div class="pic">
+                <img src="images/border/item_4.jpg" alt=""/>
+                <a href="javascript:;" class="logo"><img src="images/border/logo_4.jpg" alt=""/></a>
+            </div>
+            <div class="brief"></div>
+        </div>
+
+        <div class="item">
+            <div class="pic">
+                <img src="images/border/item_5.jpg" alt=""/>
+                <a href="javascript:;" class="logo"><img src="images/border/logo_5.jpg" alt=""/></a>
+            </div>
+            <div class="brief"></div>
+        </div>
+
+    </div>
+</body>
+</html>

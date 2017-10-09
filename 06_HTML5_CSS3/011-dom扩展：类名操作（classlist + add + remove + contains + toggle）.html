@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            margin: 10px auto;
+            border: 1px solid #000;
+        }
+
+        .current {
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.querySelector("#box1");
+            // h5新增classList属性，同时提供了add方法
+            box1.classList.add("current");
+
+            box1.onclick = function () {
+                // contains表示是否包含该属性，类似于jquery中的hasClass
+               if(box1.classList.contains("current")){
+                    // 除了add方法以外，还有remove方法，类似jquery中的removeClass方法
+                    box1.classList.remove("current");
+               }else {
+                   alert("已经去除current类属性");
+               }
+            }
+
+            var box2 = document.querySelector("#box2");
+            box2.onclick = function () {
+                // 没有则添加current属性，有则去除，类似于jquery中的toggleClass
+                box2.classList.toggle("current");
+            }
+
+        }
+    </script>
+</head>
+<body>
+<!--div.box.box$*4-->
+<div class="box box1" id="box1"></div>
+<div class="box box2"></div>
+<div class="box box2"></div>
+<div class="box box4" id="box2"></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*同一个标签，根据用户的某种状态不同，有不同的样式。这就叫做“伪类”。
+		类就是工程师加的，比如div属于box类，很明确，就是属于box类。但是a属于什么类？不明确。因为要看用户有没有点击、有没有触碰。所以，就叫做“伪类”。伪类用冒号来表示。
+		a标签有4种伪类，要求背诵：*/
+		
+		/*链接的初始颜色*/
+		a:link{
+				color:red;
+		}
+		/*点击过后链接的颜色*/
+		a:visited{
+			color:orange;
+		}
+		/*鼠标悬停后的颜色*/
+		a:hover{
+			color:green;
+		}
+		/*点击时的颜色*/
+		a:active{
+			color:black;
+		}
+
+		/*:link  
+		表示， 用户没有点击过这个链接的样式。 是英语“链接”的意思。
+		:visited
+		表示， 用户访问过了这个链接的样式。 是英语“访问过的”的意思。
+		:hover	
+		表示， 用户鼠标悬停的时候链接的样式。 是英语“悬停”的意思。
+		:active	
+		表示， 用户用鼠标点击这个链接，但是不松手，此刻的样式。 是英语“激活”的意思。*/
+
+		/*注意：
+		记住，这四种状态，在css中，必须按照固定的顺序写：
+		a:link 、a:visited 、a:hover 、a:active
+		如果不按照顺序，那么将失效。“爱恨准则”love hate。必须先爱，后恨。*/
+
+	</style>
+</head>
+<body>
+	<a href="http://www.163.com">去网易的链接</a>
+</body>
+</html>

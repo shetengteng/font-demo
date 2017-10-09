@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            margin: 10px auto;
+            border: 1px solid #000;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 可以使用类似于jquery的 选择器
+            // 如果选择的结果可能是多个，但是h5的dom选择器只返回第一个
+            // jquery 返回的是第一个
+            var box1 = document.querySelector("#box1");
+            box1.style.backgroundColor = "red";
+
+            // 获取得到多个符合条件的值
+            var boxs = document.querySelectorAll("div.box2");
+            for(var i = 0; i < boxs.length; i ++ ){
+                boxs[i].style.backgroundColor = "blue";
+            }
+        }
+    </script>
+</head>
+<body>
+<!--div.box.box$*4-->
+<div class="box box1" id="box1"></div>
+<div class="box box2"></div>
+<div class="box box2"></div>
+<div class="box box4"></div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3使用伸缩布局的方式书写布局方式，不使用传统的浮动的方式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .layout {
+            width: 600px;
+            height: 800px;
+            border: 1px solid #000;
+            margin: 100px auto;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .layout header {
+            flex: 1;
+        }
+        
+        .layout nav {
+            flex: 1;
+            background-color: red;
+        }
+        
+        .layout section {
+            flex: 5;
+            background-color: pink;
+
+            display: flex;
+        }
+
+        .layout section aside {
+            flex: 2;
+            background-color: yellow;
+        }
+
+        .layout section article {
+            flex: 3;
+        }
+
+        .layout footer {
+            flex: 1;
+            background-color: #000000;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="layout">
+        <header>header</header>
+        <nav>nav</nav>
+        <section>
+            <aside>侧边栏</aside>
+            <article>文章</article>
+        </section>
+        <footer>底部</footer>
+
+        <!-- 等价于-->
+        <!--<div class="header"></div>-->
+        <!--<div class="section">-->
+            <!--<div class="left"></div>-->
+            <!--<div class="right"></div>-->
+        <!--</div>-->
+        <!--<div class="footer"></div>-->
+        
+    </div>
+</body>
+</html>

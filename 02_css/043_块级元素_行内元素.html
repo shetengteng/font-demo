@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		h1{
+			/*设置宽度和高度有效*/
+			width: 400px;
+			height: 80px;
+			background-color: pink;
+		}
+		span{
+			/*设置宽度和高度无效*/
+			width: 400px;
+			height: 80px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	
+	<!-- 霸占一行，不能与其他任何元素并列
+		 能接受宽，高
+		 如果不能设置宽度，那么宽度将默认变为父亲元素的100% -->
+	<h1>块级元素</h1>
+	<h1>块级元素</h1>
+	
+	<!-- 
+		与其他行内元素并排
+		有行内折叠现象（换行，多空格，tab都显示为一个空格）
+		不能设置宽，高，默认的宽度和高度就是文字的宽度和高度
+	 -->
+	<span>行内元素</span>
+	<span>行内元素</span>
+
+</body>
+</html>

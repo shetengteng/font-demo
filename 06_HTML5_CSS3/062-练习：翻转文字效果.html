@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        
+        body {
+            background-color: cadetblue;
+        }
+
+        .box {
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        .box span {
+            float: left;
+            width: 100px;
+            height: 100px;
+            font-size: 80px;
+            line-height: 100px;
+            text-align: center;
+            font-family: "microsoft yahei";
+
+            position: relative;
+
+
+
+        }
+
+        span::before,span::after {
+            /*通过伪元素获取自定义属性的值*/
+            content: attr(data-text);
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            font-size: 80px;
+            line-height: 100px;
+            text-align: center;
+            font-family: "microsoft yahei";
+            color: pink;
+
+            /*横坐标缩小*/
+            transform: scale(.95,1);
+            /*变换中心*/
+            transform-origin: left top;
+
+            transition: all 1s;
+
+        }
+
+        span::before {
+            z-index: 3;
+
+        }
+
+        span::after {
+            /*影子*/
+            z-index: 2;
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        .box:hover span::after {
+            /*倾斜*/
+            transform: skew(0deg,20deg);
+        }
+
+        .box:hover span::before {
+            transform: rotateY(-40deg) skew(0deg,5deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span data-text="传">传</span>
+        <span data-text="智">智</span>
+        <span data-text="播">播</span>
+        <span data-text="客">客</span>
+    </div>
+</body>
+</html>

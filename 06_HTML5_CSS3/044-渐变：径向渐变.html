@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 250px;
+            height: 250px;
+            margin:  20px auto;
+            border: 1px solid #000;
+        }
+
+        div:nth-child(1) {
+            /*径向渐变*/
+            /*参数：
+                辐射半径（表示渐变的范围大小，可以不设置，默认盒子的大小） 中心点位置
+                起始颜色，终止颜色*/
+            background-image: radial-gradient(at left top,yellow,green);
+        }
+
+        div:nth-child(2) {
+            /*指定中心点位置，使用具体数值 先x后y*/
+            background-image: radial-gradient(at 50px 100px,yellow,green);
+        }
+        
+        div:nth-child(3) {
+            /*在盒子的中心位置*/
+            background-image: radial-gradient(at center,yellow,green,red,blue);
+        }
+
+        div:nth-child(4) {
+            /*在盒子的中心位置，添加辐射半径*/
+            background-image: radial-gradient(100px at center,
+                yellow 0%,
+                green 50%,
+                red 80%,
+                blue 100%);
+        }
+        
+        div:nth-child(5) {
+            /*设置辐射的图案是椭圆,第一个是水平半径，第二个是垂直半径*/
+            background-image: radial-gradient(100px 50px at center , yellow , green , blue);
+
+        }
+
+    </style>
+</head>
+<body>
+    <div>径向渐变，中心点位置在左上角</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+</body>
+</html>

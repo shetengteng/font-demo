@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: '微软雅黑';
+            background-color: #F7F7F7;
+
+        }
+
+        .wrapper {
+            width: 1024px;
+            margin: 0 auto;
+        }
+
+        .wrapper > header {
+            text-align: center;
+            line-height: 1;
+            padding: 20px;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        .wrapper > section {
+            min-height: 300px;
+            margin-bottom: 30px;
+            box-shadow: 1px 1px 4px #ddd;
+            background-color: #fff;
+
+        }
+
+        .wrapper > section > header {
+            line-height: 1;
+            padding: 10px;
+            font-size: 22px;
+            color: #333;
+            background-color: #eee;
+        }
+
+        .wrapper .wrap-box {
+            padding: 20px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            background-color: #fff;
+            border: 1px solid #000;
+
+        }
+
+        ul li{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 10px;
+        }
+
+        /*传统布局*/
+        /*注意这里的section是第二个元素，第一个元素是header*/
+        section:nth-child(2) ul li {
+            float: left;
+            margin-right: 170px;
+
+        }
+
+        section:nth-child(2) ul li:last-child {
+            margin-right: 0;
+
+        }
+        section:nth-child(2) ul {
+            /*清除浮动，显示下边框*/
+            overflow: hidden;
+        }
+
+        /*伸缩布局*/
+        section:nth-child(3) ul {
+            /*设置伸缩盒子*/
+            display: flex;
+
+            justify-content: space-between;
+
+        }
+        .wrapper .flex-img {
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>CSS3-伸缩布局介绍</header>
+    <!-- 传统写法-->
+    <section>
+        <header>两端对齐布局（传统）</header>
+        <div class="wrap-box">
+            <p>需要计算宽度以及外边距，比较麻烦</p>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 新方法-->
+    <section>
+        <header>两端对齐布局（伸缩布局  display: flex）</header>
+        <div class="wrap-box">
+            <p>自动精确控制对齐，无需计算</p>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <header>新概念</header>
+        <div class="wrap-box">
+            <img class="flex-img" src="images/flex/flex.png" alt="">
+        </div>
+    </section>
+
+</div>
+
+
+</body>
+</html>

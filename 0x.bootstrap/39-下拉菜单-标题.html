@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>导航栏的字体图标</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+
+
+
+    <!-- 首先使用div包裹，并且类属性值是dropdown-->
+    <div class="dropdown col-sm-2 col-sm-offset-2">
+        <!-- 下拉按钮-->
+        <!-- 一个button按钮 属性是btn和dropdown-toggle-->
+        <!-- 同时含有一个自定义属性，html5新添加的，用于js中用dataset进行获取-->
+        <button class="btn dropdown-toggle" data-toggle="dropdown" id="myDropdown">
+            主题 <span class="caret"></span>
+        </button>
+
+        <!-- 下拉列表 class定义为dropdown-menu 同时绑定按钮的id-->
+        <!-- 通过向 .dropdown-menu 添加 class .pull-right 来向右对齐下拉菜单-->
+        <ul role="menu" class="dropdown-menu pull-left"  arial-labelledby="myDropdown">
+
+            <li role="presentation" class="dropdown-header">下拉菜单标题</li>
+
+            <!-- 下拉列表的子项-->
+            <li role="presentation">
+                <!-- 角色是menuitem-->
+                <a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">java</a>
+            </li>
+            <!-- 分割线-->
+            <li role="presentation" class="divider"></li>
+
+            <li role="presentation" class="dropdown-header">下拉菜单标题</li>
+
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">前端</a>
+            </li>
+        </ul>
+    </div>
+    </div>
+</body>
+</html>

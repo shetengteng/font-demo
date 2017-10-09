@@ -1,0 +1,162 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+.all{
+  width:500px;
+  height:200px;
+  padding:7px;
+  border:1px solid #ccc;
+  margin:100px auto;
+  position:relative;
+}
+.screen{
+	width:500px;
+	height:200px;
+    overflow:hidden;
+	position:relative;
+}
+
+.screen li{ width:500px; height:200px; overflow:hidden; float:left;}
+.screen ul{ position:absolute; left:0; top:0px; width:3000px;}
+.all ol{
+    position:absolute;
+    right:15px;
+    bottom:15px;
+    line-height:20px;
+    text-align:center;
+}
+
+.all ol li{
+    float:left;
+    width:20px;
+    height:20px;
+    background:rgba(255,255,255,.5);
+    /*border:1px solid #ccc;*/
+    margin-left:10px;
+    border-radius: 50%;
+    cursor:pointer;
+}
+.all ol li.current{
+    background:yellow;
+}
+
+</style>
+<script type="text/javascript">
+    window.onload = function () {
+        var box = document.getElementById("all");
+        var ul = document.getElementById("ul");
+
+        // 此时的children是5个
+        var ulList = ul.children;
+        // 创建每个图片的按键
+        var ol = document.createElement("ol");
+        for(var i = 0 ;i<ulList.length ; i ++ ){
+            var li = document.createElement("li");
+            li.innerHTML = i + 1;
+            ol.appendChild(li);
+        }
+        ol.children[0].className = "current";
+        box.appendChild(ol);
+        
+        // 按键的事件
+        var olList = ol.children;
+        for(var i = 0 ; i<olList.length ; i ++ ) {
+            olList[i].index = i;
+            olList[i].onmousemove = function () {
+                for(var j = 0 ; j < olList.length ; j ++) {
+                    olList[j].className = "";
+                }
+                this.className = "current";
+                // 设置动画移动的距离
+                animate(ul,-ulList[this.index].offsetLeft,30);
+                // 设置自动播放的起始位置
+                index = this.index;
+            }
+        }
+
+        // 克隆第一个节点。并且使用深度复制，将该节点的子节点也进行克隆
+        // 将克隆的节点放入ul的最后节点上，完成了连续轮播图的初始操作
+        ul.appendChild(ul.children[0].cloneNode(true));
+
+        // 实现轮播图自动播放
+        var timer = setInterval(autoPlay,1000);
+        var index = 0;
+        var index2 = 0;
+        function autoPlay() {
+            // 提前增加1 因为初始化时，第一个被选中
+            index ++ ;
+            // 当是最后一个的时候
+            if(index > ulList.length - 1){
+                // 选择第二个作为下次显示
+                index = 1;
+                // 同时跳转到第一个
+                ul.style.left = 0;
+            }
+            // 自动播放图片
+            animate(ul,-ulList[index].offsetLeft,30);
+
+            // 设置小圆点被选择中
+            for( var i = 0 ; i< ol.children.length ; i ++ ){
+                ol.children[i].className = "";
+            }
+
+            index2 ++;
+            if(index2 > ol.children.length-1) {
+                index2 = 0;
+            }
+            ol.children[index2].className = "current";
+        }
+
+        // 当鼠标移入区域后，清除定时器
+        box.onmouseover = function () {
+            clearInterval(timer);
+        }
+        // 当鼠标移出区域后，开启定时器
+        box.onmouseout = function () {
+            timer = setInterval(autoPlay,1000);
+        }
+
+    }
+
+    // 动画函数
+    function animate(obj,target,speed) {
+        // 清除定时器，防止重复触发
+        clearInterval(obj.timer);
+
+        // 获取速度
+        var speed = Math.abs(speed);
+        // 判断方向
+        speed = obj.offsetLeft < target ? speed : -speed;
+
+        obj.timer = setInterval(function () {
+            var result = obj.offsetLeft - target;
+            // 通过差值判断是否到达边界
+            if(Math.abs(result) <= Math.abs(speed)){
+                obj.style.left = target + "px";
+                clearInterval(obj.timer);
+                return;
+            }
+            obj.style.left = obj.offsetLeft + speed + "px";
+        },30);
+    }
+</script>
+
+</head>
+<body>
+<div class="all" id='all'>
+	<div class="screen">
+        <ul id="ul">
+            <li><img src="images/taobao/1.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/2.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/3.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/4.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/5.jpg" width="500" height="200" /></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

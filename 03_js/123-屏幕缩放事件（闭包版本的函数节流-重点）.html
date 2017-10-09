@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>
+<script>
+    var demo = document.getElementById("demo");
+    // onresize方法在不同浏览器上有兼容的问题，需要进行节流，就是增加延时后执行
+    window.onresize = throttle(function () {
+        // ie678 || 标准浏览器
+        demo.innerHTML = window.innerWidth || document.documentElement.clientWidth;
+    },300);
+    // 闭包函数的使用
+    function throttle(fn,delay) {
+        var timer = null;
+        return function () {
+            clearTimeout(timer);
+            timer = setTimeout(fn,delay);
+        }
+    }
+</script>

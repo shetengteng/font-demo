@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*属性选择器 [] 通过标签属性来选择器*/
+        /*语法：*/
+        /*E[title] 选中页面的E元素，并且E元素要带有title属性*/
+        div {
+            width: 200px;
+            height: 50px;
+            border: 1px solid #000;
+            margin: 10px auto;
+            text-align: center;
+        }
+        /*指定class属性是box1的盒子*/
+        div[class='box1'] {
+            background-color: pink;
+        }
+        
+        /*以aa为前缀class属性的盒子*/
+        div[class^='aa'] {
+            background-color: yellow;
+        }
+        /*以bb结尾的class属性匹配   */
+        div[class$='bb'] {
+            background-color: green;
+        }
+
+        /*包含cc字符的class属性*/
+        div[class*="cc"] {
+            background-color: blue;
+        }
+
+        /*含有自定义属性的盒子，如果不填写值则只要有该属性就设置样式*/
+        div[myClass] {
+            background-color: red;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+<div class="box1">1</div>
+<div class="aabox2">2</div>
+<div class="box3" myClass="myBox">3</div>
+<div class="box4bb">4</div>
+<div class="boxcc5">5</div>
+<div class="box6">6</div>
+<div class="box7">7</div>
+<div >8</div>
+
+</body>
+</html>

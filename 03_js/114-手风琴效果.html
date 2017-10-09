@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        *{margin: 0;padding: 0;}
+        div {
+            /*注意最后一个图片偏小，由于显示图片有空白闪烁，变小后去除*/
+            width: 1150px;
+            height: 400px;
+            margin: 50px auto;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        div ul{
+            width: 1300px;
+        }
+
+        div li {
+            width: 240px;
+            height: 400px;
+            float: left;
+        }
+
+
+    </style>
+    <script type="text/javascript" src="js/animate.js"></script>
+</head>
+<body>
+<div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var div = document.getElementsByTagName("div")[0];
+    var liList = div.getElementsByTagName("li");
+    for(var i = 1 ;i <= liList.length ; i ++ ){
+        liList[i-1].style.backgroundImage = "url(images/shoufengqin/"+i+".jpg)";
+        liList[i-1].index = i-1;
+        liList[i-1].onmousemove = function () {
+            // 所有的变为50
+            for(var j = 0 ; j < liList.length ; j ++ ){
+                animate(liList[j],{width:50},10);
+            }
+            animate(liList[this.index],{width:1000},10);
+        }
+
+        liList[i-1].onmouseout = function () {
+            // 变为原样
+            for(var j = 0 ; j < liList.length ; j ++ ){
+                animate(liList[j],{width:240},10);
+            }
+        }
+    }
+
+</script>

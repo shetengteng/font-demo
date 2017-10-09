@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn200 = $("btn200");
+            var btn400 = $("btn400");
+            var run = $("run");
+            btn200.onclick = function () {
+//                animate(run,200);
+                // 可以左右
+                animate2(run,200,5);
+            }
+            btn400.onclick = function() {
+//                animate(run,400);
+                animate2(run,400,5);
+            }
+        }
+        function $(id) {return document.getElementById(id);}
+        // 自定义动画函数
+        function animate(obj,target) {
+            // 重要：思路是在obj中添加自定义属性
+            obj.timer = setInterval(function () {
+                if(obj.offsetLeft > target) {
+                    clearInterval(obj.timer);
+                    return;
+                }
+                obj.style.left = obj.offsetLeft + 10 + "px";
+            },30)
+        }
+
+        // 动画函数升级
+        function animate2(obj,target,speed) {
+            // 清除定时器，防止重复触发
+            clearInterval(obj.timer);
+            // 获取速度
+            var speed = Math.abs(speed);
+            // 判断方向
+            speed = obj.offsetLeft < target ? speed : -speed;
+            obj.timer = setInterval(function () {
+                var result = obj.offsetLeft - target;
+                // 通过差值判断是否到达边界
+                if(Math.abs(result) <= Math.abs(speed)){
+                    obj.style.left = target + "px";
+                    clearInterval(obj.timer);
+                    return;
+                }
+                obj.style.left = obj.offsetLeft + speed + "px";
+            },30);
+        }
+    </script>
+</head>
+<body>
+<button id="btn200">200</button>
+<button id="btn400">400</button>
+<div id="run"></div>
+</body>
+</html>

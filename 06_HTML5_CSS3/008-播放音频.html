@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        audio {
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+<!--宽度默认300px-->
+<!--controls 显示控制条-->
+<!--autoplay 自动播放，打开页面自动播放-->
+<!--<audio src="music/See%20You%20Again.mp3" controls autoplay></audio>-->
+
+<!--推荐的兼容性写法:不同的浏览器兼容的格式不一样-->
+<!--loop 属性表示循环播放-->
+<audio controls loop>
+    <source src="music/See%20You%20Again.ogg"/>
+    <source src="music/See%20You%20Again.mp3"/>
+    <source src="music/See%20You%20Again.wav"/>
+    你的浏览器不支持html5的音频标签
+</audio>
+
+
+</body>
+</html>

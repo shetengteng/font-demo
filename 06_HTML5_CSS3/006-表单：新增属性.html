@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        form {
+            width: 100%;
+            /*最大宽度*/
+            max-width: 640px;
+            /*最小宽度*/
+            min-width: 320px;
+            margin: 0 auto;
+            font-family: "Microsoft Yahei";
+            font-size: 20px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            height: 30px;
+            margin: 10px 0;
+        }
+
+        div {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<!--novalidate 关闭h5自带表单的默认验证功能-->
+<!--<form action="" method="post" novalidate>-->
+<form action="" method="post" >
+    <fieldset>
+        <legend>新增属性</legend>
+        <label>用户名</label>
+        <!-- 新增placeholder属性，提示文字（占位符）等价于使用js填写示例-->
+        <!-- autofocus属性，可以不填写值，如果写值就是本身，代表自动获取当前焦点-->
+        <!-- autocomplete属性，有之前输入的数据的自动提示，默认是on -->
+        <!-- required属性，表示必填字段-->
+        <input type="text" placeholder="例如：李三" autofocus="autofocus" autocomplete="on" required/>
+
+        <!-- multiple属性：表示多选 -->
+        <label>上传文件</label>
+        <input type="file" name="file" multiple/>
+
+        <label>邮箱</label>
+        <input type="email"/>
+
+        <!--pattern 可以自定义正则表达式 -->
+        <label>电话</label>
+        <input type="tel" pattern="1\d{10}"/>
+
+        <input type="submit" value="提交"/>
+    </fieldset>
+</form>
+</body>
+</html>

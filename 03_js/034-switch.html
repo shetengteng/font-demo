@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 500px;
+            margin: 200px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+<label for="txt">请输入想要查询的水果：</label><input type="text" id="txt"/>
+<button id="btn">搜索水果价格</button>
+</div>
+
+<script>
+    //需求：点击按钮，查询input中输入的水果价格。
+    //步骤：
+    //1.获取事件源和input标签
+    //2.绑定事件
+    //3.书写事件驱动程序
+        //（1）.判断是什么水果。（如果没有这个水果给他一个错误提示）
+
+
+    //1.获取事件源和input标签
+    var txt = document.getElementById("txt");
+    var btn = document.getElementById("btn");
+
+    //2.绑定事件
+    btn.onclick = function () {
+        //3.书写事件驱动程序
+            //（1）.判断是什么水果。（如果没有这个水果给他一个错误提示）
+        switch (txt.value){
+            case "苹果":
+                alert("今天苹果的价格是：20元/两 ！");
+                break;
+            case "香蕉":
+                alert("今天香蕉的价格是：40元/两 ！");
+                break;
+            case "大鸭梨":
+                alert("今天大鸭梨的价格是：100元/两 ！");
+                break;
+            case "猕猴桃":
+                alert("猕猴桃你买不起，你整个人都留下来吧！");
+                break;
+            default :
+                alert("去隔壁超市看看吧，我家没有！");
+                break;
+        }
+
+    }
+
+
+
+</script>
+
+</body>
+</html>

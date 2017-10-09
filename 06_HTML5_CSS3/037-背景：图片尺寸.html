@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            height: 500px;
+            width: 500px;
+            border: 1px solid #000;
+            margin: 100px auto;
+
+            background: url("images/background/baby0.jpg") no-repeat;
+
+
+            /*注意，不仅仅是背景图片，图案的大小也可以控制*/
+
+            /*控制背景图片的大小*/
+            /*写法一：固定背景图片的大小*/
+            /*background-size: 500px 500px;*/
+
+            /*写法二：使用固定的百分比，相对于盒子的大小*/
+            /*background-size: 100% 100%;*/
+            
+            /*写法三：使用关键字
+            cover：覆盖，背景图片等比例放大在盒子中显示，如果超过盒子的比例部分不显示
+            contain：包含，也是等比例放大在盒子中显示，但是如果比例与盒子的比例不同，最小盒子宽高比例显示在盒子中，可能会有盒子的背景色漏出*/
+            /*background-size: cover;*/
+            background-size: contain;
+
+            /*注意：写法二和写法三都可以实现背景图片的自适应*/
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 注意：入参的event可以有其他的名称，如aa都可以，为了记忆方便，为event
+    document.onclick = function(event) {
+//        console.log(event.clientX); 火狐 谷歌浏览器支持
+//        console.log(window.event.clientX); ie浏览器支持
+        // 通用写法
+        var _event = event || window.event;
+        console.log(_event.clientX);
+        console.log(_event.pageX); // 以我们的  文档   （绝对定位）  的基准点 对齐 ie678 不认识
+        console.log(_event.screenX);// 是以我们的电脑屏幕 为基准点   测量
+    }
+
+</script>

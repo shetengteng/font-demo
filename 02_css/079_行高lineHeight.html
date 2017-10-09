@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.p1{
+			width: 500px;
+			border: 1px solid black;
+			margin: 100px;
+			/*p的高度被行高撑起*/
+			line-height: 40px;
+		}
+
+		.p2{
+			width: 500px;
+			border: 1px solid black;
+			margin: 100px;
+			/*文字始终是居于行高中间的*/
+			line-height: 25px;
+			font-size: 14px;
+		}
+
+		.p3{
+			width: 600px;
+			height: 60px;
+			background-color: yellow;
+			margin: 100px;
+			font-size: 16px;
+			/*对于单行文本而言，使用行高居中，对于多行文本而言使用padding居中，行高只是一部分配合使用*/
+			line-height: 60px;
+		}
+
+		.p4{
+			width: 600px;
+			background-color: yellow;
+			margin: 100px;
+			font-size: 16px;
+			/*使用行高和padding将多行文本垂直居中，如果p有高度，需要计算行数和行高计算上padding的大小（下padding可以忽略，上padding计算好了）*/
+			line-height: 30px;
+			padding-top: 14px;
+			padding-bottom: 14px;
+		}
+
+	</style>
+</head>
+<body>
+	<p class="p1">文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+
+	<p class="p2">国国国国国国国国国国国国国国国国国国国</p>
+
+	<p class="p3">单行文本垂直居中</p>
+
+	<p class="p4">多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中</p>
+</body>
+</html>

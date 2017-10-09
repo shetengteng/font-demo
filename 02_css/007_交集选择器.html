@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*选择的元素是同时满足两个条件：必须是h3标签，然后必须是交集标签*/
+		h3.jiaoji{
+			color: red;
+		}
+
+		/*交集选择器可以连续交,一般不要这么写,由于此写法IE7开始兼容，而IE6不兼容*/
+		p.jiaoji.zhongyao{
+			color: blue;
+		}
+		
+		/*交集选择器，我们一般都是以标签名开头，比如div.haha  比如p.special*/
+		/*不建议如下方式填写，最好是以标签名开头，意义更大*/
+		.jiaoji.teshu{
+			text-decoration: underline;
+		}
+
+	</style>
+</head>
+<body>
+	<h3>我是标题</h3>
+	<h3 class="jiaoji">我是标题</h3>
+	<h3 class="jiaoji">我是标题2</h3>
+	<p class="jiaoji zhongyao">我是段落</p>
+	<p class="jiaoji teshu">我是段落2</p>
+</body>
+</html>

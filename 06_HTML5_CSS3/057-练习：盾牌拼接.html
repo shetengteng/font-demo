@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body {
+            height: 100%;
+        }
+
+        body {
+            background-color: mediumseagreen;
+        }
+
+        .box {
+            width: 440px;
+            height: 491px;
+
+            margin: 100px auto;
+        }
+
+        .box img {
+            /*动画执行的对象是img，需要注意*/
+            transition: all 2s;
+        }
+
+        /*通过transform打乱图片的位置*/
+        .box img:nth-child(1) {
+            /*先位移，然后旋转*/
+            transform:translate(100px,100px) rotate(45deg);
+        }
+
+        .box img:nth-child(2){
+            transform:translate(200px,200px) rotate(99deg);
+        }
+
+        .box img:nth-child(3){
+            transform:translate(-100px,-60px) rotate(166deg);
+        }
+
+        .box img:nth-child(4){
+            transform:translate(-200px,60px) rotate(86deg);
+        }
+
+        .box:hover img {
+            /*没有位移与角度偏离*/
+            transform: translate(0px,0px) rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="images/transition/shield_1_01.png" alt=""/>
+        <img src="images/transition/shield_1_02.png" alt=""/>
+        <img src="images/transition/shield_1_03.png" alt=""/>
+        <img src="images/transition/shield_1_04.png" alt=""/>
+        <img src="images/transition/shield_1_05.png" alt=""/>
+        <img src="images/transition/shield_1_06.png" alt=""/>
+        <img src="images/transition/shield_1_07.png" alt=""/>
+        <img src="images/transition/shield_1_08.png" alt=""/>
+        <img src="images/transition/shield_1_09.png" alt=""/>
+    </div>
+
+</body>
+</html>

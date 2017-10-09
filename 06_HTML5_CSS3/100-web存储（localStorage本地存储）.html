@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+            // localStorage 20M 存储在硬盘上，永久生效
+            // 注意是一直有效，即使关闭了浏览器之后，打开之后依然存在
+
+            var input = document.querySelector("input");
+            var btns = document.querySelectorAll("button");
+
+            // 存储在本地
+            btns[0].onclick = function () {
+                window.localStorage.setItem("username",input.value);
+            }
+            // 从本地获取
+            btns[1].onclick= function () {
+                alert(window.localStorage.getItem("username"));
+            }
+            // 更新数据,同创建操作
+            btns[2].onclick = function () {
+                window.localStorage.setItem("username",input.value);
+            }
+            // 删除操作
+            btns[3].onclick = function () {
+                window.localStorage.removeItem("username");
+            }
+            // 清除操作
+            btns[4].onclick = function () {
+                window.localStorage.clear();
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<input type="text"/>
+<button>localStorage存储</button>
+<button>localStorage获取</button>
+<button>localStorage更新</button>
+<button>localStorage删除</button>
+<button>localStorage清除</button>
+</body>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+            var demo = document.getElementById("demo");
+            //创建节点，先创建后插入
+            var newdiv = document.createElement("div");
+            var newdiv2 = document.createElement("div");
+            // 插入节点，放入节点的最后
+            demo.appendChild(newdiv);
+            // 插入节点，放入到节点的前面
+            demo.insertBefore(newdiv2,demo.children[0]);
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+    <div class="first"></div>
+</div>
+</body>
+</html>

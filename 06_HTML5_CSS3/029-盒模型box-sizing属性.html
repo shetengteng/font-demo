@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin-top: 20px;
+        }
+
+        .box1,.box2,.box3,.box4,.box5 {
+            border:20px solid black;
+            padding:25px;
+        }
+
+        .box2 {
+            /*设置盒子模型中最大盒子的大小，如果加大padding和border的宽度，那么只会减少存放内容的区域*/
+            /*内减模式*/
+            box-sizing: border-box;
+        }
+
+        .box3 {
+            /*默认的设置，外加模式*/
+            box-sizing: content-box;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div></div>
+<div class="box1">normal</div>
+<div class="box2">border-box,含边框大小是设定的宽和高</div>
+<div class="box3">content-box,内容的大小是设定的宽和高（传统设置）</div>
+
+</body>
+</html>

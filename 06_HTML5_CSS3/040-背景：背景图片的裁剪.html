@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            padding: 30px;
+            border: 30px solid rgba(0,0,255,0.3);
+
+            /*注意：背景默认的平铺的位置是在padding-box中*/
+            background: url("images/background/baby0.jpg") no-repeat;
+
+            /*以border盒子最外围为原点进行背景图片的铺设*/
+            background-origin: border-box;
+
+            /*背景裁剪的值同上origin*/
+            /*此处使用padding-box表明超出padding-box的背景图片被裁剪，同理content-box也是*/
+            background-clip: padding-box;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+
+		/*块的居中操作等价于
+			margin-left: auto; 这个是向左
+			margin-right: auto; 这个是向右
+			2个属性都写，那么就是水平居中
+			如果是
+			margin: 0 auto; 表示的是上下 0 左右 auto ，那么就是水平居中了
+		*/
+		
+		/*	1） 使用margin:0 auto; 的盒子，必须有width，有明确的width
+			2） 只有标准流的盒子，才能使用margin:0 auto; 居中。
+			也就是说，当一个盒子浮动了、绝对定位了、固定定位了，
+			都不能使用margin:0 auto;
+			3） margin:0 auto;是在居中盒子，不是居中文本。
+			文本的居中，要使用 text-align:center;*/
+		*{
+
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 400px;
+			height: 100px;
+			background-color: orange;
+			/*表示该div在body中的居中操作*/
+			margin:100px auto;
+			/*表示文本居中
+			注意：img是文本标签，img的居中是text-align:center;的写法*/
+			text-align: center;
+		}
+		p{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			/*p在body中的居中操作*/
+			margin: 0 auto;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div>哈哈哈</div>
+	
+	<p></p>
+</body>
+</html>		

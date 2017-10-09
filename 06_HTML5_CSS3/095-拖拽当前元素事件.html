@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var box = document.querySelector(".box");
+            // 拖拽事件
+            // 拖拽开始时触发
+            box.ondragstart = function () {
+                console.log("拖拽开始");
+                box.innerHTML = "拖拽开始，已触发";
+            }
+
+            // 拖拽结束时触发
+            box.ondragend = function () {
+                console.log("拖拽结束");
+                box.innerHTML = "拖拽结束，已触发";
+            }
+
+            // 拖拽离开，鼠标拖拽时，离开被拖拽的元素时触发(这里是鼠标离开拖拽元素原先位置的坐标范围时触发)
+            box.ondragleave = function () {
+                console.log("拖拽离开");
+                box.innerHTML = "拖拽离开时触发";
+            }
+
+            // 拖拽过程中触发
+            box.ondrag = function () {
+                console.log("拖拽...");
+                box.innerHTML = "正在拖拽中...";
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <!--使得元素可以拖拽需要设定draggable属性值为true-->
+    <div class="box" draggable="true"></div>
+</body>
+</html>

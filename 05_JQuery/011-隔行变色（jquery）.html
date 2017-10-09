@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 需求：隔行变色，鼠标放上去变色
+            var jqli1 = $("li:odd");
+            var jqli2 = $("li:even");
+            jqli1.css("background-color","red");
+            jqli2.css("background-color","pink");
+
+            // 记录原来的颜色
+            var color = "";
+            $("li").mouseenter(function () {
+                color = $(this).css("background");
+                $(this).css("background","yellow");
+            });
+
+            // 移开后恢复
+            $("li").mouseleave(function () {
+               $(this).css("background",color);
+            });
+        })
+
+    </script>
+</head>
+<body>
+<ul>
+    <li>隔行变色</li>
+    <li>隔行变色</li>
+    <li>隔行变色</li>
+    <li>隔行变色</li>
+    <li>隔行变色</li>
+</ul>
+</body>
+</html>

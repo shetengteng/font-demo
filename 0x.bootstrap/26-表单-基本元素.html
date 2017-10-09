@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--
+    Bootstrap 提供了对所有原生的 HTML5 的 input 类型的支持
+包括：text、password、datetime、datetime-local、date、month、
+time、week、number、email、url、search、tel 和 color。
+适当的 type 声明是必需的，这样才能让 input 获得完整的样式。
+-->
+
+<form role="form">
+    <div class="form-group">
+        <label for="name">标签</label>
+        <input id="name" type="text" class="form-control" placeholder="文本输入">
+    </div>
+    <!-- 当您需要进行多行输入的时，则可以使用文本框 textarea。
+    必要时可以改变 rows 属性
+    （较少的行 = 较小的盒子，较多的行 = 较大的盒子）。-->
+
+    <div class="form-group">
+        <label for="name">文本框</label>
+        <textarea class="form-control" rows="3"></textarea>
+    </div>
+
+    <!-- 复选框和单选按钮用于让用户从一系列预设置的选项中进行选择。
+当创建表单时，如果您想让用户从列表中选择若干个选项时，请使用 checkbox。
+如果限制用户只能选择一个选项，请使用 radio。
+
+
+对一系列复选框和单选框使用 .checkbox-inline 或 .radio-inline class，控制它们显示在同一行上
+-->
+
+    <div class="form-group">
+        <label for="name">默认的复选框和单选按钮的实例,垂直分布</label>
+        <div class="checkbox">
+            <label><input type="checkbox" value="">选项 1</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" value="">选项 2</label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios1"
+                       value="option1" checked> 选项 1
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios2"
+                       value="option2"> 选项 2-选择它将会取消选择选项1
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name">内联的复选框和单选按钮的实例</label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox1" value="option1"> 选项 1
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox2" value="option2"> 选项 2
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox3" value="option3"> 选项 3
+        </label>
+        <label class="checkbox-inline">
+            <input type="radio" name="optionsRadiosinline" id="optionsRadios3"
+                   value="option1" checked> 选项 1
+        </label>
+        <label class="checkbox-inline">
+            <input type="radio" name="optionsRadiosinline" id="optionsRadios4"
+                   value="option2"> 选项 2
+        </label>
+    </div>
+</form>
+
+</body>
+</html>

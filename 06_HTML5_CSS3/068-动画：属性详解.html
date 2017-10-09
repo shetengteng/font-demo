@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            margin: 100px;
+
+            /*调用动画，前2个参数是必须的
+                调用名称
+                调用的执行时间
+                调用的次数，如果是infinite则表示是无限的
+                表示有来回效果：alternate
+                是否是线性的运动，默认非线性，设置线性 linear
+                延时执行的时间
+                注意：前2个参数后的参数没有顺序
+            */
+
+            /*animation: move 3s infinite alternate linear;*/
+
+            /*动画属性拆分写法*/
+
+            /*动画名称*/
+            animation-name: move;
+            /*动画持续时间*/
+            animation-duration: 3s;
+            /*注意前2个属性是必须的，且顺序不能改变*/
+
+            /*动画的执行次数 infinite 无线次数*/
+            animation-iteration-count: 3;
+            /*动画执行的方向,normal 正常，alternate 含有反向(反向也算作执行次数中)*/
+            animation-direction: alternate;
+            /*动画延时执行*/
+            animation-delay: 1s;
+            /*设置动画结束时的状态
+            forwards:保持动画结束时的状态
+            backwards: 保持动画开始前的状态，*/
+            animation-fill-mode: backwards;
+
+            /*动画的运动曲线
+                linear线性
+                ease-in-out先加速后减速
+                ease
+                ease-in
+                ease-out
+                steps(number) 将整个动画分为几步操作*/
+            /*animation-timing-function: linear;*/
+            animation-timing-function: steps(6);
+
+        }
+
+
+        /*定义的动画*/
+        @keyframes move {
+            0% {
+
+            }
+
+            100% {
+                transform:translateX(500px) rotate(555deg);
+
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

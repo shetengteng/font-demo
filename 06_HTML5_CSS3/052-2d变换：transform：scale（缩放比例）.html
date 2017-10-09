@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+       ox {
+            width: 1000px;
+            margin: 100px auto;
+        }
+
+        .box div{
+            width: 300px;
+            height: 150px;
+            border: 1px solid #000;
+            background-color: red;
+            float: left;
+            margin-right: 30px;
+        }
+
+        .box div:nth-child(2) {
+            background-color: pink;
+            transition: all 1s;
+        }
+
+        div:nth-child(2):hover {
+            /*变形 scale 缩放*/
+            /*参数:
+                水平缩放比例
+                垂直缩放比例*/
+            transform: scale(2,.5);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

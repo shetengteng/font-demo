@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*
+        基本选择器：
+            div{} : 标签选择器
+            .box : 类选择器
+            #box : id选择器
+            div p : 后代选择器
+            div.box : 交集选择器
+            div,span,p : 并集选择器
+            div>p : 子代选择器
+            * : 通配符
+            div+p : 选中div后面的第一个p
+            div~p : 选中的div后面所有的p
+        */
+
+        div+p {
+            /*div后面第一个p 注意，必须是紧挨着的p，如在div后面添加一个span，那么本次样式设置失效*/
+            background-color: red;
+        }
+        
+        div~p {
+            /*div后面的p，包含第一个*/
+            background-color: green;
+        }
+
+    </style>
+</head>
+<body>
+
+<div>div</div>
+<span>span</span>
+<p>pppppp</p>
+<p>pppppp</p>
+<p>pppppp</p>
+<span>span</span>
+<p>pppppp</p>
+
+</body>
+</html>

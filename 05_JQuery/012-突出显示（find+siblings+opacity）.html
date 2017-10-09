@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {margin: 0;padding: 0;}
+        ul {list-style: none;}
+        body {
+            background-color: #000;
+        }
+        .wrap {
+            width: 630px;
+            height: 394px;
+            padding: 10px 0 0 10px;
+            border: 1px solid #fff;
+            overflow: hidden;
+            margin: 100px auto 0;
+        }
+
+        .wrap li {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+
+        .wrap img {
+            display: block;
+            border: 0;
+        }
+
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // 使用链式编程，当移动到某个li的时候，透明为1，其他的透明度为.5
+            $(".wrap").find("li").mouseenter(function () {
+                $(this).css("opacity",1).siblings("li").css("opacity",0.5);
+            });
+            // 从wrap中移开的时候，其他的透明度为1
+            $(".wrap").mouseleave(function () {
+                // 首先查找第一个直接子元素，然后再从直接子元素中查找余下的li
+                $(this).children().children("li").css("opacity",1);
+                // 也可为
+                // $(".wrap li").css("opacity",1);
+            });
+
+        })
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li><a href="#"><img src="images/突出显示/01.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/突出显示/02.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/突出显示/03.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/突出显示/04.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/突出显示/05.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/突出显示/06.jpg" alt=""/></a></li>
+    </ul>
+</div>
+</body>
+</html>

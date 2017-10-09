@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>]
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 打印版本号
+            console.log($.fn.jquery);
+
+            // 放弃当前版本,使用的是1.8.2版本
+            $.noConflict();
+            console.log($.fn.jquery);
+            // 但是jQuery的版本依然是1.11.1
+            console.log(jQuery.fn.jquery);
+
+
+            // 失效---
+            // 如果要将当前版本都改为老版本
+            // var _newJQ = $.noConflict(true);
+            // 此时都是老版本
+            //console.log($.fn.jquery);
+            //console.log(jQuery.fn.jquery);
+            // 但是_newJQ却是新的版本
+            // console.log(_newJQ.fn.jquery);
+        })
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var txt = "what are you 弄啥咧!好的";
+    function getStringLength(str) {
+        var len = 0; //存储总长度
+        var c = 0;  // 存储每一个编码
+        for(var i=0;i<str.length;i++)
+        {
+            c = str.charCodeAt(i);
+            (c>=0 && c<=127) ? len ++ : len += 2;
+        }
+        return len;
+    }
+    console.log(txt.length);
+    console.log(getStringLength(txt));
+</script>

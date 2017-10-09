@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        img {
+            position: absolute;
+            top: 0;
+        }
+
+        #right {
+            right: 0;
+        }
+
+        #left {
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            function hide(id){
+                $(id).style.display = "none";
+            }
+
+            function show(id){
+                $(id).style.display = "block";
+            }
+
+            // 设定是5s之后关闭操作
+            window.setTimeout(closeAd,5000);
+            function closeAd(){
+                hide("right");
+                hide("left");
+            }
+        }
+    </script>
+</head>
+<body>
+<img src="images/setTimeout/1.gif" alt="" id="right"/>
+<img src="images/setTimeout/2.gif" alt="" id="left"/>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+<p>内容内容内容</p>
+</body>
+</html>

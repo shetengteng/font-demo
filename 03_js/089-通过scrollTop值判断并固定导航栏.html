@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {margin: 0;padding: 0;}
+        img {
+            vertical-align: top;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+        }
+
+        .fix {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script type="text/javascript" src="js/my.js"></script>
+    <script>
+        window.onload = function () {
+            var nav = $("Q-nav");
+            // 初始nav的top值
+            var navTop = nav.offsetTop;
+            window.onscroll = function () {
+                // 获取当前已经滚动的top值并判断
+                console.log(nav.offsetTop);
+                // 注意这里需要将nav.offsetTop放在函数外，因为有fix会使得too变成0 改变nav的top值
+                if(scroll().top > navTop) {
+                    // 此时固定，获得固定的css样式
+                    nav.className = "nav fix";
+                }else {
+                    // 释放固定的css样式
+                    nav.className = "nav";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="top" id="top">
+    <img src="images/scroll/top.png" alt=""/>
+</div>
+<div class="nav" id="Q-nav">
+    <img src="images/scroll/nav.png" alt=""/>
+</div>
+<div class="main">
+    <img src="images/scroll/main.png" alt=""/>
+</div>
+</body>
+</html>

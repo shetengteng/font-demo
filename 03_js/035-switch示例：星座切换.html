@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 350px;
+            height: 350px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        .dt {
+            padding-left: 10px;
+            line-height: 35px;
+            font-weight: 700;
+            color: #036;
+        }
+
+        .dd {
+            padding: 10px;
+        }
+
+        .top {
+            overflow: hidden;
+        }
+
+        .icon {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background: url(images/xingzuo.png) no-repeat;
+            margin-right: 15px;
+        }
+
+        .yunshi {
+            /*span是行内元素，需要转换为块级元素,且在同一行上*/
+            display: inline-block;
+            width: 80px;
+            height: 13px;
+            background: url(images/star.png) no-repeat top center;
+            position: relative;
+
+        }
+
+        .right select {
+            height: 24px;
+        }
+
+        .yunshi .star {
+            /*通过修改宽度，修改星星的个数*/
+            width: 80%;
+            height: 13px;
+            background: url(images/star.png) no-repeat left bottom;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .bottom {
+            margin-top: 10px;
+        }
+
+    </style>
+    <script>
+        window.onload = function (){
+            var select = document.getElementById("select");
+            var icon = document.getElementById("icon");
+            var star = document.getElementById("star");
+            var content = document.getElementById("content");
+            // 定义一个star的数组，里面放置了星星的个数
+            var arrStar = [1,2,3,4,4,5,6,7,7,9,10,8];
+
+            //定义一个关于星座内容的数组
+            var arrContent = [
+                "今天工作运势相当的好，但要小心破财，要注意危言耸听的宗教信仰而花费了不理智的钱财，或是身边...[详细]",
+                "今天的你听到了一些不实的蜚短流长，情绪起伏较多，有点担心他人的眼光，是否观感不好，那就要小...[详细]",
+                "工作上很多事情都□要去配合他人，小心随波逐流了，请适当的表达自己的情绪想法，重新整顿工作效...[详细]"];
+
+            //下拉列表onchange方法
+            select.onchange = function () {
+                icon.style.backgroundPositionY = -50*this.value + "px";
+                //star.style.width = Math.random()*100+"%";
+                star.style.width = arrStar[this.value]/5*100+"%";
+                content.innerHTML = arrContent[this.value];
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="dt">星座运势</div>
+        <div class="dd">
+            <div class="top">
+                <div class="icon" id="icon"></div>
+                <div class="right">
+                    <select name="" id="select">
+                        <option value="0">白羊座 03.21-04.19</option>
+                        <option value="1">金牛座 03.21-04.19</option>
+                        <option value="2">天平座 03.21-04.19</option>
+                        <option value="3">白羊座 03.21-04.19</option>
+                        <option value="4">白羊座 03.21-04.19</option>
+                        <option value="5">白羊座 03.21-04.19</option>
+                    </select>
+                    <div>
+                        今日运势:
+                        <span class="yunshi">
+                            <span class="star " id="star"></span>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="bottom" id="content">
+                今天工作运势相当的好，但要小心破财，要注意危言耸听的宗教信仰而花费了不理智的钱财，或是身边...[详细]
+            </div>
+        </div>
+    </div>
+</body>
+</html>

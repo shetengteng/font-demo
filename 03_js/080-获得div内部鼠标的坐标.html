@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .demo {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #img {
+            width: 88px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="demo" id = "box">
+    <img id="img" src="images/img.jpg" alt=""/>
+</div>
+</body>
+</html>
+<script>
+
+    var box = document.getElementById("box");
+
+    box.onmousemove = function (event) {
+        var _event = event || window.event;
+        // 鼠标在div中的坐标
+        targetX = _event.clientX - this.offsetLeft;
+        targetY = _event.clientY - this.offsetTop;
+    }
+
+    var startX = 0;
+    var startY = 0;
+    var targetX = 0;
+    var targetY = 0;
+
+    setInterval(function(){
+        startX = startX + (targetX - startX) / 10;
+        startY = startY + (targetY - startY) / 10;
+        img.style.left = startX + "px";
+        img.style.top = startY + "px";
+
+    },20);
+
+</script>

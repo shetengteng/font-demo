@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 730px;
+            height: 454px;
+            overflow: hidden;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .slider {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .slider ul{
+            list-style: none;
+            font-size: 0;
+        }
+
+        .circle {
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+        }
+        
+        .circle span {
+            float: left;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            margin-right: 10px;
+            background: rgba(0,0,0,.2);
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .circle span:hover,.circle span.current {
+            background: rgba(0,0,0,.3);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var slider =  document.getElementById("slider");
+            var images = slider.getElementsByTagName("li");
+            var circle = document.getElementById("circle");
+            var width = 0;
+            for( var i = 0 ; i < images.length ; i++) {
+                var span =  document.createElement("span");
+                span.innerHTML = i+1;
+                if(i == 0){
+                    span.className = "current";
+                }
+                circle.appendChild(span);
+                width = width +  18 + 10;
+            }
+
+            var spans = circle.children;
+            for(var i = 0; i < spans.length ; i++) {
+                spans[i].index = i;
+                spans[i].onmouseover = function () {
+                    // 切换图片
+                    slider.style.top =  -this.index*454+"px";
+                    for(var j = 0 ; j < spans.length ; j ++) {
+                        spans[j].className = "";
+                    }
+                    spans[this.index].className = "current";
+                }
+            }
+            // 居中
+            circle.style.marginLeft = - width/2 + 10 + "px";
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="slider" id="slider">
+        <ul>
+            <li><img src="images/11.jpg" alt=""/></li>
+            <li><img src="images/22.jpg" alt=""/></li>
+            <li><img src="images/33.jpg" alt=""/></li>
+            <li><img src="images/44.jpg" alt=""/></li>
+            <li><img src="images/55.jpg" alt=""/></li>
+            <li><img src="images/66.jpg" alt=""/></li>
+        </ul>
+    </div>
+    <div class="circle" id="circle">
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            margin: 100px auto;
+            width: 300px;
+            border: 1px solid #eee;
+        }
+
+        .box ul {
+            list-style: none;
+        }
+
+        .box ul li {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .box ul li.current {
+            background-color: #aaa !important;
+        }
+
+        .box ul span {
+            margin-left: 10px;
+            line-height: 30px;
+        }
+
+    </style>
+    <script>
+        window.onload = function(){
+            function $(id){return document.getElementById(id);};
+            var list = document.getElementsByTagName("li");
+            for(var i = 0; i< list.length; i++) {
+                if(i%2 == 0){
+                    // 注意：这种写法是行内css样式，权重1000，权重较大，会覆盖内联式和外联式的css
+                    list[i].style.backgroundColor = "#eee";
+                }
+                list[i].onmouseover = function() {
+                    // 注意：这里必须用this，指代当前的变量
+                   this.className = "current";
+                }
+                list[i].onmouseout = function () {
+                    //为空，表示还原原来的样式
+                    this.className = "";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+        <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+        <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+        <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+        <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+        <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+        <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+        <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+        <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+        <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+    </ul>
+</div>
+</body>
+</html>

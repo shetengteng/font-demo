@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        *{margin: 0;padding: 0;}
+
+        .content li {
+            width: 100%;
+            height: 500px;
+            background-color: pink;
+        }
+
+        .nav {
+            position: fixed;
+            top: 50px;
+            left: 50px;
+        }
+
+        .nav li {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 50px;
+            margin-top: -1px;
+            cursor: pointer;
+        }
+
+        .nav li:hover {
+            color: red;
+        }
+
+    </style>
+    <script type="text/javascript" src="js/my.js"></script>
+    <script>
+        window.onload = function () {
+            var nav = $("nav");
+            var navLi = nav.children;
+            var content = $("content");
+            var contentLi = content.children;
+            for(var i = 0 ; i < navLi.length ; i ++ ){
+                navLi[i].index = i;
+                navLi[i].onclick = function () {
+                    target = contentLi[this.index].offsetTop;
+                    timer = setInterval(function () {
+                        start = start + (target - start) / 10;
+                        window.scrollTo(0,start);
+                        // 注意：要进行释放定时器，否则页面无法拖动，因为定时中有操作window.scrollTo
+                        if(Math.round(start) == target) {
+                            clearInterval(timer);
+                        }
+                    },30);
+                }
+            }
+            var start = 0, target = 0;
+            var timer = null;
+        }
+    </script>
+</head>
+<body>
+<ul class="nav" id="nav">
+    <li>首页</li>
+    <li>关注</li>
+    <li>动态</li>
+    <li>风格</li>
+    <li>作品</li>
+</ul>
+
+<ul class="content" id="content">
+    <li>首页</li>
+    <li>关注</li>
+    <li>动态</li>
+    <li>风格</li>
+    <li>作品</li>
+</ul>
+
+</body>
+</html>

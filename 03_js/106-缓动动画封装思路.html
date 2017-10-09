@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div#box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+<button id="btn">200</button>
+<div id="box"></div>
+</body>
+</html>
+
+<script>
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+
+    var target = 200;
+    var timer = null;
+    btn.onclick = function () {
+        timer = setInterval(function () {
+            // 移动间距，渐变
+            var step = (target - box.offsetLeft)/10;
+            // 重点：向上和向下取整，因为step可能是小数，因此需要进行取整判断
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            //
+            box.style.left = box.offsetLeft + step + "px";
+            // 由于进行了取整操作，因此可以判断==
+            if(box.offsetLeft == target){
+                clearInterval(timer);
+            }
+        },30);
+    }
+
+
+
+</script>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 300px;
+            width: 300px;
+            background-color: pink;
+            display: none;
+        }
+    </style>
+
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+
+            // 点击按键后显示动画
+            // 滑入操作
+            $("button:eq(0)").click(function () {
+                // 动画1：slideDown
+                //$("div").slideDown();
+
+                // 动画2： slideDown + ms值
+                // 通过控制宽高和透明度以及display 在规定的ms值内显示出来
+                //$("div").slideDown(2000);
+
+                // 动画3： slideDown + normal | fast | slow
+                //$("div").slideDown("normal"); // 不填写与写其他值，则为normal
+                //$("div").slideDown("fast");
+                //$("div").slideDown("slow");
+
+                // 动画4： slideDown + ms + 回调函数
+                $("div").slideDown(2000,function () {
+                    // 在执行2000ms后执行一次回调函数
+                    alert("动画执行完毕");
+                });
+            });
+
+            // 滑出操作
+            $("button:eq(1)").click(function () {
+                // 动画 1 slideUp
+                // $("div").slideUp();
+
+                // 动画 2 slideUp + normal | fast | slow
+
+                // $("div").slideUp("slow");
+
+                // 动画 3 slideUp + ms + | func
+                //$("div").slideUp(1000);
+                // 在滑出完毕后执行回调函数
+                $("div").slideUp(1000, function () {
+                    alert("滑出完毕");
+                });
+            });
+
+            // 切换
+            $("button:eq(2)").click(function () {
+                // 显示隐藏切换
+                $("div").slideToggle(200, function () {
+                    alert("切换完毕");
+                })
+            });
+            
+        })
+    </script>
+</head>
+<body>
+<button>滑入</button>
+<button>滑出</button>
+<button>切换</button>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul {list-style: none;}
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var $liList = $("li");
+            // $liList的length是js对象的个数，length也包含在jQuery对象中
+            for(var i = 0 ; i < $liList.length ; i ++ ) {
+                if(i % 2 == 0 ) {
+                    // 此处是jQuery对象转换为js对象
+                    $liList[i].style.backgroundColor = "pink";
+                }else {
+                    $liList[i].style.backgroundColor = "yellow";
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+<ul>
+    <li>隔行变色隔行变色隔行变色隔行变色</li>
+    <li>隔行变色隔行变色隔行变色隔行变色</li>
+    <li>隔行变色隔行变色隔行变色隔行变色</li>
+    <li>隔行变色隔行变色隔行变色隔行变色</li>
+    <li>隔行变色隔行变色隔行变色隔行变色</li>
+    <li>隔行变色隔行变色隔行变色隔行变色</li>
+    <li>隔行变色隔行变色隔行变色隔行变色</li>
+    <li>隔行变色隔行变色隔行变色隔行变色</li>
+</ul>
+
+</body>
+</html>

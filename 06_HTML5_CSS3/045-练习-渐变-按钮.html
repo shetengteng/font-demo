@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8fcd4;
+            background-image: linear-gradient(
+				to bottom,
+				#f8fcd4 20%,
+				#dbfacb 100%
+			);
+        }
+
+        .nav {
+            width: 800px;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0 auto;
+        }
+
+        .nav a {
+            /*转换成block，同时text-align:center生效*/
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            border: 1px solid #e59500;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            text-decoration: none;
+            background-image: linear-gradient(to bottom,#FFB700 0%,#FF8C00 100%);
+        }
+
+        .nav a:hover {
+            background-image: linear-gradient(to bottom,#FFB700 0%,#FF8CFF 100%);
+        }
+
+    </style>
+</head>
+<body>
+<div class="nav">
+    <a href="javascript:;">refresh</a>
+    <a href="javascript:;">shuffle</a>
+    <a href="javascript:;">preview</a>
+    <a href="javascript:;">tea</a>
+    <a href="javascript:;">wifi</a>
+    <a href="javascript:;">locator</a>
+</div>
+</body>
+</html>

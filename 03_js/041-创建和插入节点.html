@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+            var demo = document.getElementById("demo");
+            // 删除孩子节点,注意Element的child是其他浏览器兼容的
+            demo.removeChild(demo.lastElementChild);
+
+            // 克隆节点,设置为true则是深层复制，会复制子节点
+            var cloneNode = demo.cloneNode(true);
+            // 克隆完毕后进行插入操作
+           // document.body.appendChild(cloneNode);
+            demo.parentNode.appendChild(cloneNode);
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+    <div class="first"></div>
+    <div></div>
+    <div></div>
+    <div id="dd"></div>
+</div>
+</body>
+</html>

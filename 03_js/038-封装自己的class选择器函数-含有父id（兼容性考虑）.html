@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // byClassName在IE9一下有兼容性的问题，需要自定义一个方法
+            var demo = document.getElementsByClassName("demo");
+
+
+            // 自定义方法
+            // 通过遍历的方式获取所有的盒子，然后通过className比对，相同的留下
+            function getByClassName(className,parentId) {
+                // 如果浏览器支持，则直接返回
+                if(document.getElementsByClassName){
+                    //含有父元素的id
+                    if(parentId){
+                        return document.getElementById(parentId).getElementsByClassName(className);
+                    }
+                    // 没有父元素则返回className
+                    return document.getElementsByClassName(className);
+                }
+                // 不支持的浏览器则
+                var obj = document;
+                if(parentId) {
+                    obj = document.getElementById(parentId);
+                }
+                var results = [];
+                // 使用通配符获取所有标签
+                var all = obj.getElementsByTagName("*");
+                for(var i = 0;i<all.length ;i++){
+                    // 获取所有的类名，使用空格分割
+                    var classNames = all[i].className.split(" ");
+                    for(var j = 0 ; j < classNames.length ; j ++ ){
+                         // 判断className相同的则保存在results中
+                        if(classNames[j] == className) {
+                            results.push(all[i]);
+                            break;
+                         }
+                    }
+                }
+                return results;
+            }
+
+
+
+            var result =  getByClassName("demo");
+            alert("demo:"+result.length);
+            var result2 = getByClassName("test");
+            alert("test:"+result2.length);
+        }
+    </script>
+</head>
+<body>
+<div id = "one">
+    <div class="demo test"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="demo"></div>
+    <div></div>
+    <div></div>
+    <div class="demo dd test"></div>
+    <div></div>
+    <div></div>
+</div>
+
+</body>
+</html>

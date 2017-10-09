@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {margin: 0;padding: 0;}
+        ul {list-style: none;}
+
+
+        .wrapper {
+            width: 1000px;
+            height: 475px;
+
+            margin: 100px auto 0;
+        }
+
+        .wrapper .tab {
+            border: 1px solid #ddd;
+            border-bottom: 0;
+            width: 320px;
+            height: 36px;
+        }
+
+        .wrapper .tab li {
+            position: relative;
+            float: left;
+            height: 34px;
+            width: 80px;
+            line-height: 34px;
+            text-align: center;
+            cursor: pointer;
+            border-top: 4px solid #fff;
+        }
+
+        /*span用于间隔的竖线*/
+        .wrapper .tab li span {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            background-color: #ddd;
+            width: 1px;
+            height: 14px;
+            overflow: hidden;
+        }
+
+        .wrapper .tab li.active {
+            border-bottom: 0;
+            border-color: red;
+        }
+
+        .products {
+            width: 1002px;
+            border: 1px solid #ddd;
+            height: 476px;
+
+        }
+
+        .products .main {
+            float: left;
+            display: none;
+        }
+
+        .products .selected {
+            display: block;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 需求：鼠标放到哪个li上，切换对应的div显示
+            $(".wrapper ul li").mouseenter(function () {
+                // 当前的li显示，其余的li去除active
+                $(this).addClass("active").siblings("li").removeClass("active");
+                // 显示当前的index的div，去除其他的div显示
+                var index = $(this).index();
+                $(".products>div").eq(index).addClass("selected").siblings("div").removeClass("selected");
+            });
+        })
+    </script>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- 选择的tab栏-->
+    <ul class="tab">
+        <li class="tab-item active">国际大牌<span>◆</span></li>
+        <li class="tab-item">国妆名牌<span>◆</span></li>
+        <li class="tab-item">清洁用品<span>◆</span></li>
+        <li class="tab-item">男士精品</li>
+    </ul>
+    <!-- 显示的div-->
+    <div class="products">
+        <div class="main selected"><a href="###"><img src="images/tab/guojidapai.jpg" alt=""/></a></div>
+        <div class="main"><a href="###"><img src="images/tab/guozhuangmingpin.jpg" alt=""/></a></div>
+        <div class="main"><a href="###"><img src="images/tab/qingjieyongpin.jpg" alt=""/></a></div>
+        <div class="main"><a href="###"><img src="images/tab/nanshijingpin.jpg" alt=""/></a></div>
+    </div>
+
+</div>
+</body>
+</html>

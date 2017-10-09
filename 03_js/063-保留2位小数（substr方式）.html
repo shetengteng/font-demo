@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var PI = 3.1415926;
+    var str = PI+"";
+    console.log(str.substr(0,str.indexOf(".")+3)); // 通过substr获取后2位小数
+
+    console.log(parseInt(PI*100)/100); // 通过运算获得保留2位小数
+    console.log(PI.toFixed(2)); // 直接使用函数保留2位小数
+
+</script>
+</body>
+</html>

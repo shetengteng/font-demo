@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+
+            // 按键触发
+            var btn = document.querySelector("button");
+            btn.onclick = function () {
+                var username = document.querySelector(".username").value;
+                var pwd = document.querySelector(".pwd").value;
+
+                var ckb = document.querySelector(".ckb").checked;
+                alert(ckb);
+                if(ckb) {
+                    window.localStorage.setItem("username",username);
+                    window.localStorage.setItem("pwd",pwd);
+                } else {
+                    window.localStorage.removeItem("username");
+                    window.localStorage.removeItem("pwd");
+
+                }
+            }
+
+            // 预先保存
+            var usernameV =   window.localStorage.getItem("username");
+            var pwdV = window.localStorage.getItem("pwd");
+            if(usernameV != null && pwdV != null) {
+                document.querySelector(".username").value = usernameV;
+                document.querySelector(".pwd").value = pwdV;
+            }
+        }
+    </script>
+</head>
+<body>
+<label for="">
+    用户名：<input type="text" name="username" class="username"/>
+</label>
+<br/>
+<br/>
+<label for="">
+    密码：<input type="password" name="pwd" class="pwd"/>
+</label>
+<br/>
+<br/>
+<label for="">
+    <input type="checkbox" class="ckb"/>记住密码
+</label>
+<br/>
+<br/>
+<button>登录</button>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 300px;
+            width: 300px;
+            background-color: pink;
+            display: none;
+        }
+    </style>
+
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+
+            // 点击按键后显示动画
+            // 淡入操作
+            $("button:eq(0)").click(function () {
+                // 动画1：fadeIn
+                //$("div").fadeIn();
+
+                // 动画2： fadeIn + ms值
+                // 通过控制宽高和透明度以及display 在规定的ms值内显示出来
+                //$("div").fadeIn(2000);
+
+                // 动画3： fadeIn + normal | fast | slow
+                //$("div").fadeIn("normal"); // 不填写与写其他值，则为normal
+                //$("div").fadeIn("fast");
+                //$("div").fadeIn("slow");
+
+                // 动画4： fadeIn + ms + 回调函数
+                $("div").fadeIn(2000,function () {
+                    // 在执行2000ms后执行一次回调函数
+                    alert("动画执行完毕");
+                });
+            });
+
+            // 淡出操作
+            $("button:eq(1)").click(function () {
+                // 动画 1 fadeOut
+                // $("div").fadeOut();
+
+                // 动画 2 fadeOut + normal | fast | slow
+
+                // $("div").fadeOut("slow");
+
+                // 动画 3 fadeOut + ms + | func
+                //$("div").fadeOut(1000);
+                // 在滑出完毕后执行回调函数
+                $("div").fadeOut(1000, function () {
+                    alert("淡出完毕");
+                });
+            });
+
+            // 切换
+            $("button:eq(2)").click(function () {
+                // 切换
+                $("div").fadeToggle(200, function () {
+                    alert("切换完毕");
+                })
+            });
+
+            // 更改透明度
+            $("button:eq(3)").click(function () {
+                // 将已显示的div的透明度修改为0.5
+                // 同样也有4种写法
+                $("div").fadeTo(1000,.5, function () {
+                    //
+                });
+            });
+        })
+    </script>
+</head>
+<body>
+<button>淡入</button>
+<button>淡出</button>
+<button>切换</button>
+<button>更改透明度为.5</button>
+<div></div>
+</body>
+</html>

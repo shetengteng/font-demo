@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div.div1{
+			width: 200px;
+			height: 200px;
+			/*padding的四个方向的小属性写法*/
+			padding-top: 30px;
+			padding-right: 20px;
+			padding-bottom: 40px;
+			padding-left: 100px;
+			border: 1px solid red;
+		}
+		div.div2{
+			width: 200px;
+			height: 200px;
+			/*padding的四个方向的大属性写法*/
+			padding:30px 20px 40px 100px;
+			border: 1px solid red;
+		}
+		div.div3{
+			width: 200px;
+			height: 200px;
+			/*padding的四个方向的省略写法：上，右，下，？（同右大小）*/
+			padding: 20px 30px 40px;
+			/*	padding: 30px 40px; 上，右，？（同上大小），？（同右大小）*/
+			border: 1px solid red;
+		}
+		div.div4{
+			/*宽度200+20+40+2*/
+			width: 200px;
+			height: 200px;
+			padding:10px 20px 30px;
+			/*小属性替换大属性，注意顺序要小属性在下，否则大属性会覆盖小属性*/
+			/*同时这里替换的是右边，而大属性的左边依然是同先前的右值大小20px*/
+			padding-right: 40px;
+			border: 1px solid red;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="div1">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+	<div class="div2">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+	<div class="div3">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+	<div class="div4">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+</body>
+</html>

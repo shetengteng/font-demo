@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "microsoft yahei";
+            background-color: #F7F7F7;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wrapper {
+            width: 1024px;
+            margin: 0 auto;
+        }
+
+        .wrapper > section {
+            min-height: 300px;
+            margin-bottom: 30px;
+            box-shadow: 1px 1px 4px #DDD;
+            background-color: #FFF;
+        }
+
+        .wrapper > header {
+            text-align: center;
+            line-height: 1;
+            padding: 20px;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        .wrapper section > header {
+            line-height: 1;
+            padding: 10px;
+            font-size: 22px;
+            color: #333;
+            background-color: #EEE;
+        }
+
+        .wrapper .wrap-box {
+            padding: 20px;
+        }
+
+        .wrapper .brief {
+            min-height: auto;
+        }
+        .wrapper .flex-img {
+            width: 100%;
+        }
+
+        /*全局设置*/
+        section ul {
+            /*采用伸缩布局*/
+            display: flex;
+            border: 1px solid #000;
+
+            /*注意：侧轴演示中，ul需要大于li的高度，才能有效果*/
+            min-height: 600px;
+
+
+        }
+
+        section ul li {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            text-align: center;
+            line-height: 200px;
+            margin: 10px;
+        }
+
+        /*侧轴对齐*/
+        section:nth-child(3) ul {
+            align-items: center;
+        }
+
+        section:nth-child(4) ul {
+            /*从侧轴的开始的地方对齐，默认是顶端对齐*/
+            align-items: flex-start;
+        }
+
+        section:nth-child(5) ul {
+            /*从侧轴的开始的地方对齐，默认是底端对齐*/
+            align-items: flex-end;
+        }
+
+      
+        section:nth-child(6) ul {
+            /*基线对齐*/
+            align-items: baseline;
+        }
+
+        section:nth-child(7) ul {
+            /*拉伸，从上到下拉伸*/
+            align-items: stretch;
+        }
+
+        section:nth-child(7) ul li {
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>CSS3-伸缩布局详解</header>
+        <!-- 简介-->
+        <section class="brief">
+            <header>align-items</header>
+            <div class="wrap-box">
+                <p>调整侧轴方向对齐方式，包括flex-start、flex-end、center、stretch</p>
+            </div>
+        </section>
+
+        <section>
+            <header> align-items: center</header>
+            <div class="wrap-box">
+                <p>侧轴对齐方式，垂直方向居中</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <header> align-items:flex-start</header>
+            <div class="wrap-box">
+                <p>侧轴对齐方式，从侧轴开始的地方对齐，顶对齐</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <header> align-items:flex-end</header>
+            <div class="wrap-box">
+                <p>侧轴对齐方式，从侧轴结束的地方对齐，底端对齐</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <header> align-items:baseline</header>
+            <div class="wrap-box">
+                <p>侧轴基线对齐的方式，等价于flex-start</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <header> align-items:stretch</header>
+            <div class="wrap-box">
+                <p>侧轴对齐方式，垂直拉伸，需要设置li的高度为auto</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

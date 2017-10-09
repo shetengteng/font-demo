@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+            display: none;
+        }
+    </style>
+    <script>
+        //此处不用使用入口函数加载window.onload，不是页面加载完成后使用，而是事先加载好该函数
+        //在读到button 的 onclick的时候将fn函数加载进来
+        function fn(a){
+            var box = document.getElementById("box"+a);
+            if(box.style.display == "block"){
+                box.style.display = "none";
+            }else {
+                box.style.display = "block";
+            }
+
+        };
+    </script>
+</head>
+<body>
+<button onclick = "fn(1);">box1</button>
+<button onclick = "fn(2);">box2</button>
+<button onclick = "fn(3);">box3</button>
+<button onclick = "fn(4);">box4</button>
+<div id="box1">1</div>
+<div id="box2">2</div>
+<div id="box3">3</div>
+<div id="box4">4</div>
+</body>
+</html>

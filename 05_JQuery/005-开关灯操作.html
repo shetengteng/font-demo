@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+
+        div {
+            width: 944px;
+            margin: 50px auto 0;
+        }
+
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var btn =  $("button");
+            var body = $("body");
+            btn.click(function () {
+                if(btn.html() == "关灯") {
+                    btn.html("开灯");
+                    // jQuery对象转换为 js对象
+                    body[0].style.backgroundColor = "rgba(0,0,0,.6)";
+                } else {
+                    btn.html("关灯");
+                    body[0].style.backgroundColor = "white";
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<button>关灯</button>
+<div>
+    <img src="images/开关灯/coder.jpg" alt=""/>
+</div>
+</body>
+</html>

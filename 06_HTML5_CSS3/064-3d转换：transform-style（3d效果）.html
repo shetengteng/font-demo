@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        .out {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            background-color: pink;
+            margin: 100px auto;
+
+            transform: rotateX(66deg);
+
+            /*preserve-3d:让子盒子位于3d空间中.呈现3d效果*/
+            /*flat:让盒子扁平化*/
+            transform-style:preserve-3d;
+
+            transition: all 5s;
+        }
+
+        .in {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            margin: 50px auto;
+            transform: rotateX(130deg);
+            border: 1px solid #000;
+        }
+
+        .out:hover {
+            transform: rotateX(360deg);
+        }
+
+    </style>
+</head>
+<body>
+<div class="out">
+    <div class="in"></div>
+</div>
+</body>
+</html>

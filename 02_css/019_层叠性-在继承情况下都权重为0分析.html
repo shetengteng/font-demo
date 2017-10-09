@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*在比较权重时，继承的权重为0*/
+		/*在开始数权重之前，一定要查看是否选中了文字所在的最内层标签
+		如果没有选中，则权重为0*/
+
+		/*没有选中p，权重为0*/
+		div.box div.box div.box{
+			color: blue;
+		}
+
+		/*在权重相同的情况下，如都为0，则按照就近原则*/
+		/*#hezi3比 div.box 更加精确，更加靠近
+		#hezi1 #hezi2 #hezi3 比#hezi3要更加准确
+		等价于 权重都为0 的情况下，也可以比较class的个数，id的个数，以及标签的个数
+		*/
+		#hezi1 #hezi2 #hezi3{
+			color:red;
+		}
+
+		#hezi3{
+			color:green;
+		}
+
+		#hezi1 #hezi2{
+			color:yellow;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box" id="hezi1">
+		<div class="box" id="hezi2">
+			<div class="box" id="hezi3">
+				<p class="pp">判断颜色</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

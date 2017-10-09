@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+
+            background-color: green;
+
+            /*调用动画，前2个参数是必须的
+                调用名称
+                调用的执行时间
+                调用的次数，如果是infinite则表示是无限的
+                表示有来回效果：alternate
+                是否是线性的运动，默认非线性，设置线性 linear
+                延时执行的时间
+                注意：前2个参数后的参数没有顺序
+            */
+
+            animation: move 3s infinite;
+
+        }
+
+        /*css3中的动画：
+        类似 js中的先定义，再使用
+        定义动画
+            @keyframes 动画名称 {
+                from {初始状态}
+                to {结束状态}
+            }
+
+        调用动画
+            animation: 动画名称 持续时间
+        */
+
+        /*定义的动画*/
+        @keyframes move {
+            0% {
+               transform: translateX(0px) translateY(0px);
+                background-color: green;
+                border-radius: 0;
+            }
+
+            25% {
+                transform: translateX(500px) translateY(0px);
+            }
+
+            50% {
+                transform: translateX(500px) translateY(300px);
+                border-radius: 50%;
+            }
+
+            75% {
+                transform: translateX(0px) translateY(300px);
+            }
+
+            100% {
+                transform:translateX(0px) translateY(0px);
+                background-color: red;
+                border-radius: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

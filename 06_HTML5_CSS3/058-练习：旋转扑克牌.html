@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body {
+            height: 100%;
+        }
+
+        body {
+            background-color: mediumseagreen;
+        }
+
+        .box{
+            width: 300px;
+            height: 440px;
+            margin:100px auto;
+            position: relative;
+        }
+
+        img{
+            width: 100%;
+            /*这里用定位，将所有的图片合并在一个位置显示，层叠显示*/
+            position: absolute;
+            left:0;
+            top:0;
+            box-shadow: 0 0 3px 0 #666;
+            /* transform-origin：变换中心 默认是 图片几何中心*/
+            /*transform-origin ：水平坐标 垂直坐标  */
+
+            /*transform-origin: 50px 50px;*/
+            /*重点：改变旋转的原点，默认是盒子的几何中心点*/
+            transform-origin: center bottom;
+            transition:all 1s;
+        }
+
+        .box:hover img:nth-child(6){
+            transform:rotate(-10deg);
+        }
+
+        .box:hover img:nth-child(5){
+            transform:rotate(-20deg);
+        }
+
+        .box:hover img:nth-child(4){
+            transform:rotate(-30deg);
+        }
+
+        .box:hover img:nth-child(3){
+            transform:rotate(-40deg);
+        }
+
+        .box:hover img:nth-child(2){
+            transform:rotate(-50deg);
+        }
+
+        .box:hover img:nth-child(1){
+            transform:rotate(-60deg);
+        }
+
+        .box:hover img:nth-child(8){
+            transform:rotate(10deg);
+        }
+
+        .box:hover img:nth-child(9){
+            transform:rotate(20deg);
+        }
+
+        .box:hover img:nth-child(10){
+            transform:rotate(30deg);
+        }
+
+        .box:hover img:nth-child(11){
+            transform:rotate(40deg);
+        }
+
+        .box:hover img:nth-child(12){
+            transform:rotate(50deg);
+        }
+
+        .box:hover img:nth-child(13){
+            transform:rotate(60deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+        <img src="images/transition/pk1.png" alt=""/>
+    </div>
+
+</body>
+</html>

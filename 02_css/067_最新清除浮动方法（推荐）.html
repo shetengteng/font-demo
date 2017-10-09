@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0；
+			padding: 0;
+		}
+		.father{
+			width: 600px;
+			border: 1px solid red;
+		}
+		.box1,.box2{
+			float: left;
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+		/*为了给father父级元素撑出高度，要清除浮动的影响，又称为闭合浮动，要达到左右闭合的目的*/
+		.clearfix:before , .clearfix:after{
+			display: table;
+			content: "";
+		}
+		.clearfix:after{
+			clear:both;
+		}
+		.clearfix{
+			/*为了兼容IE6*/
+			_zoom:1;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="father clearfix">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+	</div>
+</body>
+</html>

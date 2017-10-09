@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        
+        body {
+            background-color: cornflowerblue;
+        }
+        
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .box::after,.box::before {
+            width: 100%;
+            height: 100%;
+            content: "";
+            background: url(images/3d/bg.png) no-repeat left top;
+            position: absolute;
+            border-radius: 50%;
+
+            transition: all 1s;
+
+            /* 让盒子的背面隐藏*/
+            backface-visibility: hidden;
+        }
+
+        .box::before {
+            /*开始设定是反面，不显示*/
+            transform: rotateY(-180deg);
+        }
+
+        .box::after {
+            /*left:350px;*/
+            background-position: right top;
+        }
+
+        .box:hover::before {
+            /*旋转为0度后，显示正常*/
+            transform: rotateY(0deg);
+        }
+        .box:hover::after{
+            /*旋转为反面后不显示*/
+            transform: rotateY(180deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

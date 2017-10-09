@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .rotateX {
+            width: 330px;
+            height: 227px;
+            margin: 100px auto;
+
+            perspective: 5px;
+        }
+
+        img {
+            /*过渡*/
+            transition: transform 2s ease-in-out;
+        }
+
+        .rotateX:hover img {
+            /*z轴旋转效果，显示的和rotate的旋转差不多*/
+            transform: rotateZ(360deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="rotateX">
+        <img src="images/3d/z.jpg" alt=""/>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            margin: 10px auto;
+            border: 1px solid #000;
+        }
+
+        .current {
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+
+        }
+    </script>
+</head>
+<body>
+<!--在h5中要在标签中使用自定义属性，命名需要使用data打头 -->
+<div class="box" title="盒子" data-name="zhangsan" data-content="内容自定义属性" data-my-age="33"></div>
+
+<script>
+    var box = document.querySelector("div");
+    console.log(box.className);
+    // 获取自定义属性，需要使用dataset属性
+    console.log(box.dataset['name']);
+    console.log(box.dataset['content']);
+
+    // 设置自定义属性的值
+    box.dataset['name'] = "lisi";
+
+    // 对于特殊的自定义命名方式的读取
+    console.log(box.dataset['myAge']);
+
+
+</script>
+
+</body>
+</html>

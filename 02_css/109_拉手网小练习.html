@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div.box1{
+			width: 276px;
+			height: 283px;
+			border: 1px solid red;
+			margin: 100px;
+			position: relative;
+		}
+		div.box1 p img{
+			width: 276px;
+			height: 175px;
+		}
+
+		div.box1 .dtc{
+			/*绝对定位将行内元素转换为块级元素*/
+			position: absolute;
+			left: 9px;
+			top: -9px;
+			background: url(images/icons.png) no-repeat -108px 0px;
+			width: 52px;
+			height: 28px;
+		}
+
+		div.box1 .myy{
+			position: absolute;
+			left: 57px;
+			top: -9px;
+			background: url(images/icons.png) no-repeat -54px 0px;
+			width: 52px;
+			height: 28px;
+		}
+
+		div.box1 h3{
+			width: 276px;
+			line-height: 36px;
+			font-family: "Simsun";
+			font-size: 12px;
+			text-align: center;
+			background-color: black;
+			color:white;
+			position: absolute;
+			top:139px;
+			left: 0px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<span class="dtc"></span>
+		<span class="myy"></span>
+		<p>
+			<img src="images/kaoya.jpg" alt="" />
+		</p>
+		<h3>天通苑五区店、中关村店、西三旗店</h3>
+		<h4>【四店通用】</h4>
+	</div>
+</body>
+</html>

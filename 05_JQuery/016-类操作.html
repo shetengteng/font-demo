@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .other {
+            border: 1px solid black;
+        }
+
+        .current {
+            background-color: red;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("button").eq(0).click(function () {
+                // 添加class属性 ,可以添加多个属性
+                $("div").addClass("current").addClass("other");
+            });
+
+            $("button").eq(1).click(function () {
+                // 删除class属性 ，如果没有参数则去除所有的class属性
+                //$("div").removeClass();
+
+                // 判断该类属性是否存在
+                var has = $("div").hasClass("current");
+
+                if(has) {
+                    alert("存在current属性");
+                    // 删除指定的属性，如果指定的属性不存在，则不进行任何操作
+                    $("div").removeClass("current");
+                }
+            });
+
+        })
+    </script>
+</head>
+<body>
+<button>变色</button>
+<button>恢复</button>
+<div>
+
+</div>
+
+
+</body>
+</html>

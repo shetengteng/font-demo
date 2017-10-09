@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .aa {
+            border: 1px solid red;
+        }
+    </style>
+
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 获取元素，绑定属性
+            var btn = $("button");
+            var jqInput = $("input");
+
+            var jqcheck = $("input:checkbox");
+
+            btn.click(function () {
+                jqInput.title = "ss";// 这里绑定的属性是在jq对象中，标签上没有
+                jqInput.attr("title","ss"); // 这里的属性是绑定到标签上
+                // 可以添加class属性，增加样式
+                jqInput.attr("class","aa");
+                // 移除属性
+                jqInput.removeAttr("title");
+                // 获取属性
+                console.log(jqInput.attr("class"));
+
+                // 注意from中的特殊属性：checked、selected、disabled要使用.prop()方法
+                // 如果使用attr，attr是一次性修改
+                jqcheck.prop("checked",true);
+
+                // 获取特殊的from的属性的值
+                console.log(jqcheck.prop("checked"));
+
+            });
+
+        })
+    </script>
+</head>
+<body>
+<button>绑定</button>
+<input type="text"/>
+<input type="checkbox"/>
+
+</body>
+</html>

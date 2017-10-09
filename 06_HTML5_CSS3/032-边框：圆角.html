@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            background-color: pink;
+            margin: 100px auto;
+            text-align: center;
+        }
+        .box1 {
+            /*等价于
+            border-radius: 60px/60px;
+            */
+            border-radius: 60px;
+        }
+
+        .box2 {
+            /*单个属性，可以设置更加细粒度*/
+            /*左上角属性，先水平半径 再垂直半径*/
+            border-top-left-radius: 20px 60px;
+            /*如果只有一个值，表示水平垂直都是该值*/
+            border-top-right-radius: 60px;
+            /*底部的2个角*/
+            border-bottom-left-radius: 20px 60px;
+            border-bottom-right-radius: 20px 60px;
+        }
+
+        .box3 {
+            /*复合角: 水平半径/垂直半径*/
+            /*圆角的设置是顺时针，从左上角开始*/
+            border-radius: 60px 60px 60px 60px / 120px 120px 120px 120px;
+        }
+
+        .box4 {
+            /*简化写法*/
+            border-radius: 60px / 10px;
+        }
+
+        .box5 {
+            /*填写2个值表示的是对角线赋值*/
+            border-radius: 20px 60px;
+        }
+
+        .box6 {
+            /*依然是顺时针，没有的值取得对角线的值*/
+            border-radius: 20px 60px 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">全部圆角设置</div>
+    <div class="box2">单个角属性设置</div>
+    <div class="box3">复合角设置</div>
+    <div class="box4">简化写法</div>
+    <div class="box5">简化写法2</div>
+    <div class="box6">简化写法3</div>
+</body>
+</html>

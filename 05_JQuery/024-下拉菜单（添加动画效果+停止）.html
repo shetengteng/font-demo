@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 330px;
+            height: 30px;
+            margin: 100px auto;
+            background: url("images/下拉菜单/bg.jpg");
+            line-height: 30px;
+            text-align: center;
+            padding-left: 10px;
+            margin-bottom: 0;
+        }
+
+        .wrap li {
+            background: url("images/下拉菜单/libg.jpg");
+        }
+
+        /*直接子类*/
+        .wrap > ul > li {
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .wrap a {
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .wrap li ul {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            display: none;
+        }
+
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 获取一级的li
+            var jqli = $(".wrap>ul>li");
+            // mouseenter移动进去触发一次，移动到子对象后，再移动到此对象不会触发，
+            // mouseover移动到对象上就会触发，不管是否从子对象移动的
+            // 移动到li上
+            jqli.mouseenter(function () {
+                // 获取该jqli的子ul
+                // 原生js  选择第2个元素，第一个元素是a
+                //this.children[1].style.display = "block";
+                // jq 写法
+                // 注意这里有先stop的操作，先停止动画再执行其他的
+                // 防止没有执行完，又触发，将原先的执行结束
+                $(this).children("ul").stop(false,false).slideDown(200);
+            });
+
+            jqli.mouseleave(function () {
+                // 离开后执行stop后再执行动画
+                $(this).children("ul").stop(false,false).slideUp(200);
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单2</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单3</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

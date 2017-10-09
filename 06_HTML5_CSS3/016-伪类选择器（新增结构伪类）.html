@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*a:hover 鼠标移动上去的状态 :link 正常状态  :active 点击的状态 :visited 点击之后的状态*/
+        /*lovehate l v h a 表示优先级*/
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        
+        .box:hover {
+            background-color: red;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+
+        ul {
+            width: 520px;
+            height: auto;/*默认值，被子元素撑开*/
+            margin: 10px auto;
+        }
+
+        li {
+            float: left;
+            width: 70px;
+            height: 70px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 70px;
+            margin: -1px 0  0 -1px;
+        }
+
+        /*使用结构伪类选择器选择特定的标签元素*/
+        /*选择第一个元素*/
+        li:first-child {
+            background-color: pink;
+        }
+
+        /*选择第二个元素*/
+        li:last-child {
+            background-color: blue;
+        }
+
+        /*选择特定位置的元素*/
+        li:nth-child(5) {
+            background-color: red;
+        }
+
+        /*选择倒数位置的元素*/
+        li:nth-last-child(2) {
+            background-color: yellow;
+        }
+
+        /*可以选择所有奇数的元素，使用n代替数字，取值从0开始的整数，0,1,2,3--*/
+        /*注意同时可以使用odd直接代替2n-1 表示奇数*/
+        li:nth-child(2n-1) {
+            color:red;
+        }
+
+
+        /*可以使用even 表示使用偶数的元素*/
+        li:nth-child(even) {
+            color:pink;
+        }
+
+        /*选中倒数的5个，由于n从0开始，则使用-1n+5 可以获取5个元素*/
+        /*注意：必须使用-1n+5 表示，而使用5-1n则失败*/
+        li:nth-last-child(-1n+5) {
+            border-top: 2px solid red;
+        }
+
+        /*表示选取7的倍数的元素*/
+        li:nth-child(7n) {
+            border-left: 2px solid blue;
+        }
+
+        /*表示获取ul的子元素 并设置样式*/
+        ul :nth-child(3n) {
+            border-left: 2px solid green;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="box"></div>
+    <!--ul>li{$}*35-->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+    </ul>
+
+</div>
+</body>
+</html>

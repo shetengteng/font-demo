@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script>
+    // 冒泡问题：按下按钮后，空白处的点击也依然被触发，js的冒泡机制
+    var btn = document.getElementById("btn");
+    btn.onclick = function (event) {
+        alert("按钮按下了");
+
+        // 取消冒泡机制
+        var _event = event || window.event;
+        if(_event.stopPropagation) {
+            _event.stopPropagation();  // w3c 标准浏览器
+        }else{
+            _event.cancelBubble = true; //  ie浏览器 678
+        }
+    }
+
+    document.onclick = function () {
+        alert("空白处按下了");
+    }
+</script>
+</body>
+</html>

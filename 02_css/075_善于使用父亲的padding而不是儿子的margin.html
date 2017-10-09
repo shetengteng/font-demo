@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 300px;
+			height: 250px;
+			padding-top: 50px;
+			background-color: orange;
+			/*border: 1px solid red;*/
+		}
+		p{
+			width: 100px;
+			height: 100px;
+			/*如果使用了子容器的margin，但是注意，父容器如div中没有border属性，那么会造成div与其父容器的margin为50px，因此子容器在父容器中的上下不使用margin，而是在父容器中使用padding来达到同样的效果*/
+			/*margin-top: 50px;*/
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p></p>
+	</div>
+</body>
+</html>

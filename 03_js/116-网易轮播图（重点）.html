@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/wangyi.css"/>
+    <script type="text/javascript" src="js/animate.js"></script>
+</head>
+<body>
+<div class="slider" id="js_slider">
+    <!-- 轮播图的图片-->
+    <div class="images">
+        <div class="images-main" id="js_images_main">
+            <div class="images-main-item"><a href="#"><img src="images/wangyi/1.jpg" alt=""/></a></div>
+            <div class="images-main-item"><a href="#"><img src="images/wangyi/2.jpg" alt=""/></a></div>
+            <div class="images-main-item"><a href="#"><img src="images/wangyi/3.jpg" alt=""/></a></div>
+            <div class="images-main-item"><a href="#"><img src="images/wangyi/4.jpg" alt=""/></a></div>
+            <div class="images-main-item"><a href="#"><img src="images/wangyi/5.jpg" alt=""/></a></div>
+            <div class="images-main-item"><a href="#"><img src="images/wangyi/6.jpg" alt=""/></a></div>
+        </div>
+    </div>
+    <!-- 轮播图的按键-->
+    <div class="cricle" id="js_cricle">
+        <span class="prev"></span>
+        <!--<span class="cricle-item current"></span>-->
+        <!--<span class="cricle-item"></span>-->
+        <!--<span class="cricle-item"></span>-->
+        <!--<span class="cricle-item"></span>-->
+        <!--<span class="cricle-item"></span>-->
+        <!--<span class="cricle-item"></span>-->
+        <span class="next"></span>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+    function $(id) {return document.getElementById(id);}
+
+    // 获取最外层的盒子
+    var js_slider = $("js_slider");
+    // 获取图片的外层的盒子
+    var js_images_main = $("js_images_main");
+    // 获取所有的图片组
+    var images = js_images_main.children;
+    //
+    var js_cricle = $("js_cricle");
+
+    // 得到每次行走的宽度
+    var scrollWidth = js_slider.clientWidth;
+
+    for(var i = 0; i < images.length ; i ++ ){
+        var span = document.createElement("span");
+        span.innerHTML = i + 1;
+        if(i == 0){
+            span.className = "cricle-item current";
+        }else {
+            span.className = "cricle-item";
+            // 图片显示的初始化，显示第一张图片，其他的图片放在旁边
+            images[i].style.left = scrollWidth + "px";
+        }
+        //将所有的span插入到prev和next之间
+        js_cricle.insertBefore(span,js_cricle.children[js_cricle.children.length-1]);
+
+    }
+    // 得到span的集合
+    var spans = js_cricle.children;
+    // 设定当前图片标识
+    var imageIndex = 0;
+    // 左侧按键
+    spans[0].onclick = function () {
+        animate(images[imageIndex],{left: scrollWidth},10);
+        imageIndex -- ;
+        if(imageIndex < 0){
+            imageIndex = images.length - 1 ;
+        }
+        images[imageIndex].style.left = -scrollWidth + "px";
+        animate(images[imageIndex],{left: 0},10);
+        changeCurrent(imageIndex + 1);
+    }
+
+    // 右侧按键
+    spans[spans.length - 1].onclick = function () {
+        // 自动播放的本质是向左移动
+        autoPlay();
+    }
+
+    for(var i = 1 ; i < spans.length - 1 ; i ++ ){
+        spans[i].index = i;
+        spans[i].onclick = function () {
+            var currentIndex= this.innerHTML - 1;
+            if(currentIndex > imageIndex ){
+                // 向左侧移动
+                animate(images[imageIndex],{left: -scrollWidth},10);
+                imageIndex = currentIndex;
+                images[imageIndex].style.left = scrollWidth + "px";
+            }else if(currentIndex < imageIndex){
+                // 向右侧移动
+                animate(images[imageIndex],{left: scrollWidth},10);
+                imageIndex = currentIndex;
+                images[imageIndex].style.left = -scrollWidth + "px";
+            }
+            animate(images[imageIndex],{left: 0},10);
+            changeCurrent(this.index);
+        }
+    }
+    // 改变当期控制显示
+    function changeCurrent(index) {
+        for(var i = 1 ; i < spans.length - 1 ; i ++ ){
+            spans[i].className = "cricle-item";
+        }
+        spans[index].className = "cricle-item current";
+    }
+
+    // 自动播放定时器
+    var timer = null;
+    timer = setInterval(autoPlay,3000);
+    function autoPlay () {
+        // 向左播放，本质上是按下右侧按键
+        // 当前图片左移动
+        animate(images[imageIndex],{left: -scrollWidth},10);
+        imageIndex ++ ;
+        // 后判断
+        if(imageIndex > images.length-1){
+            // 当到达最后一张图片之后，换到第一张图片
+            imageIndex = 0;
+        }
+        // 重要：显示的图片要现在右侧，然后慢慢走到左侧（有些图片之前会在最左侧）
+        images[imageIndex].style.left = scrollWidth + "px";
+        // 下一张图片左移动到当前
+        animate(images[imageIndex],{left: 0},10);
+        // 改变状态
+        changeCurrent(imageIndex + 1);
+     }
+
+    // 清除定时器
+    js_slider.onmouseover = function () {
+        clearInterval(timer);
+    }
+
+    js_slider.onmouseout = function () {
+        clearInterval(timer);// 一般是要开启定时器，需要先清除定时器
+        timer = setInterval(autoPlay,3000);
+    }
+
+</script>

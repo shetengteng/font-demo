@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+        }
+
+        .current {
+            background-color: yellowgreen;
+        }
+
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 需求：切换背景，判断当前是否有current的类属性，如果有则删除，没有则添加
+            // 如下3种方式都是一样的效果
+            var $div = $("div");
+            $("button").click(function () {
+
+//                if($div.hasClass("current")) {
+//                    $div.removeClass("current");
+//                }else {
+//                    $div.addClass("current");
+//                }
+
+                // 使用toggle进行切换
+                $div.toggleClass("current");
+
+                // 等价于
+                // $div.hasClass("current") ? $div.removeClass("current") : $div.addClass("current");
+            });
+        })
+    </script>
+</head>
+<body>
+<button>切换背景</button>
+<div></div>
+</body>
+</html>

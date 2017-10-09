@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul {list-style: none;}
+        img {  vertical-align: top; /*可以使用display:block变成块级元素*/}
+
+        .slider {
+            width: 490px;
+            height: 170px;
+            border: 1px solid #eee;
+            padding: 5px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .inner  {
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .inner ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .inner ul li {
+            float: left;
+        }
+
+        .cricle {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .cricle ul li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            margin-left: 5px;
+            background-color: rgba(0,0,0,.3);
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .cricle ul li:hover ,.cricle ul li.current{
+            background-color: rgba(255,255,255,.5);
+        }
+
+    </style>
+    <script>
+        window.onload = function(){
+            var slider = document.getElementById("slider");
+            var img_ul = slider.children[0].children[0];
+            var btn_ul = slider.children[1].children[0];
+            var btns = btn_ul.getElementsByTagName("li");
+            var leader = 0;
+            var target = 0;
+            for(var i = 0 ; i < btns.length ; i ++ ){
+                btns[i].index = i;
+                btns[i].onmouseover = function () {
+                    for(var j = 0 ; j < btns.length ; j ++ ){
+                        btns[j].className = "";
+                    }
+                    this.className = "current";
+                    target = -170*this.index; // 重点
+                }
+            }
+            // 定时器始终在运行
+            window.setInterval(function(){
+                // 使用缓动
+               leader = leader + (target - leader) /10;
+               img_ul.style.top = leader + "px";
+            },20);
+        }
+    </script>
+</head>
+<body>
+<div class="slider" id="slider">
+    <div class="inner" >
+        <ul>
+            <li><img src="images/slider2/01.jpg" alt=""/></li>
+            <li><img src="images/slider2/02.jpg" alt=""/></li>
+            <li><img src="images/slider2/03.jpg" alt=""/></li>
+            <li><img src="images/slider2/04.jpg" alt=""/></li>
+        </ul>
+    </div>
+    <div class="cricle" >
+        <ul>
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

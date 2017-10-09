@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .comment {
+            font-size: 40px;
+            font-family: "simsun";
+            color: #ff3300;
+        }
+
+        .comment li {
+            float: left;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var wjx_none = '☆'; // 空心五角星
+            var wjx_sel = '★'; // 实心五角星
+
+            //需求1：鼠标放上去当前的li和之前所有的li内容全部变为实心五角星，移开变为空心。
+            $(".comment li").on("mouseenter", function () {
+                // 当前的五角星和之前的五角星都是实心的
+                //$(this).text(wjx_sel).prevAll("li").text(wjx_sel);
+                // 当前五角星之后的五角星都是空心的
+                //$(this).nextAll("li").text(wjx_none);
+                // 使用链式编程，一句话完成上述2步操作,注意end的使用
+                $(this).text(wjx_sel).prevAll("li").text(wjx_sel).end().nextAll("li").text(wjx_none);
+            })
+
+            // 需要记录当前的五角星的位置，使用current来标记，先进行点击操作
+            $(".comment li").on("mouseleave", function () {
+                // 解决bug：如果没有current的li，那么会有无法清除的情况
+                if($("li.current").length === 0 ) {
+                    // 全部清空
+                    $(".comment li").text(wjx_none);
+                }else {
+                    //当前五角星以前为实心，以后为空心
+                    $("li.current").text(wjx_sel).prevAll("li").text(wjx_sel).end().nextAll("li").text(wjx_none);
+                }
+            })
+
+            //需求2：鼠标点击那个li，当你前li和之前所有的li都变成实心五角星，其他变为空心。
+            $(".comment li").on("click", function () {
+                // 点击后记录当前的五角星为current，其他的五角星去除current
+                $(this).addClass("current").siblings("li").removeClass("current");
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+</body>
+</html>

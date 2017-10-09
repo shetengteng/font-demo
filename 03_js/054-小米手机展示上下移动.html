@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .demo {
+            width: 512px;
+            height: 400px;
+            background: url(images/mi.png) no-repeat center top;
+            margin: 100px auto;
+        }
+
+        .demo div {
+            width: 100%;
+            height: 50%;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var top = document.getElementById("top");
+            var bottom = document.getElementById("bottom");
+            var demo = document.getElementById("demo");
+            var num = 0;
+            var timer = null;
+            top.onmouseover = function(){
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    // 当top值 为 -1070的时候，就到了图片的底部
+                    // 图片的高度 - div的高度，就是top的负值
+                    if(num > -1070){
+                        num -= 1;
+                        // 此时图片向上移动
+                        demo.style.backgroundPositionY = num + "px";
+                    }else{
+                        clearInterval(timer);
+                    }
+                },10);
+            }
+            top.onmouseout = function() {
+               clearInterval(timer);
+            }
+
+            bottom.onmouseover = function(){
+                clearInterval(timer);
+                // 此时图片向下移动
+                timer = setInterval(function(){
+                    if(num < 0 ) {
+                        num += 1;
+                        demo.style.backgroundPositionY = num + "px";
+                    }else{
+                        clearInterval(timer);
+                    }
+                },20);
+            }
+            bottom.onmouseout = function () {
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="demo" id="demo">
+    <div id="top"></div>
+    <div id="bottom"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .out {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            margin: 100px auto;
+            /*添加了border以后，in居中了，由于有边框，margin的参照物更改*/
+            border: 1px solid #000000;
+            /*opacity的问题：
+            大盒子设置透明后，小盒子也会有影响，跟着透明，
+            即使小盒子设置opacity也不能修改回来*/
+            opacity: .3;
+        }
+
+        .in {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 100px auto;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="out">
+        <div class="in">
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .one {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .two {
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            background-color: blue; 
+            
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var two = document.querySelector(".two");
+            // 拖拽到目标元素时触发事件
+
+            // 当被拖拽元素进入(拖拽的鼠标位置)时触发
+            two.ondragenter = function () {
+                console.log("元素进入");
+                two.innerHTML = "元素进入";
+            }
+
+            // 当被拖拽的元素离开时触发
+            two.ondragleave = function () {
+                console.log("元素离开");
+                two.innerHTML = "元素离开";
+            }
+
+            // 当拖拽元素在目标元素之上，则连续触发
+            two.ondragover = function (event) {
+                console.log("元素在目标元素之上");
+                two.innerHTML = "元素在目标元素之上";
+
+                // 如果要使用drop事件，需要修改阻止拖拽事件的默认行为
+                event.preventDefault();
+            }
+
+            // 当目标元素上松开鼠标时触发
+            two.ondrop = function () {
+                console.log("松开鼠标");
+                two.innerHTML = "松开鼠标触发";
+                // 需要在dragover上设置 event.preventDefault(); 阻止默认操作
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div class="one" draggable="true"></div>
+    <div class="two"></div>
+</body>
+</html>

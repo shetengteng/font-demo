@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+   function Person(name,age) {   //  构造函数
+       this.name = name;   // 只写属性
+       this.age = age;
+   }
+    Person.prototype.showName = function() {  // 用的共同的父亲
+        alert("我的名字是"+ this.name); // 注意这里要使用this来获取属性
+    }
+    Person.prototype.showAge = function() {
+        alert("我的名字是"+ this.age);
+    }
+    var demo = new Person("刘德华",15);
+    var demo1 = new Person("刘德华",15);
+    demo.showName();
+    alert(demo.showName === demo1.showName); // 注意这里是true，调用了原型的相同的方法
+
+
+</script>

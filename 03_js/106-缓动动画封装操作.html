@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div#box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+<button id="btn200">200</button>
+<button id="btn400">400</button>
+<div id="box"></div>
+</body>
+</html>
+
+<script>
+    var btn200 = document.getElementById("btn200");
+    var btn400 = document.getElementById("btn400");
+
+    var box = document.getElementById("box");
+
+    btn200.onclick = function () {
+        animate(box,200);
+    }
+
+    btn400.onclick = function () {
+        animate(box,400);
+    }
+
+    function animate(obj,target){
+        // 注意：需要先清空一下定时器
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            // 计算步长--动画原理：盒子本身的位置+步长
+            var step = (target - obj.offsetLeft) / 10;
+            // 取整步长
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            obj.style.left = obj.offsetLeft + step + "px";
+            if( box.offsetLeft == target ) {
+                clearInterval(obj.timer);
+            }
+        },30)
+    }
+
+</script>
